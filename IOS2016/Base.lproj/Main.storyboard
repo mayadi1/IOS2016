@@ -169,7 +169,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-profile-img" translatesAutoresizingMaskIntoConstraints="NO" id="Sj8-Hp-i3R">
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-profile-img" translatesAutoresizingMaskIntoConstraints="NO" id="Sj8-Hp-i3R">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Sj8-Hp-i3R" secondAttribute="height" multiplier="101:125" id="bhs-H8-2y1">

@@ -28,7 +28,20 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var bio: UITextView!
 
-
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let imgData = defaults.objectForKey("image") as? NSData
+        {
+            if let image = UIImage(data: imgData)
+            {
+                //set image in UIImageView imgSignature
+                self.profileImage.image = image
+                //remove cache after fetching image data
+            }
+        }
+    }
     
     override func viewDidLoad() {
         
@@ -63,12 +76,11 @@ class ProfileViewController: UIViewController {
             self.religion.text = value3
 
             
-            let filePath = snap!["userProfilePic"] as! String
-       
-            let fileUrl = NSURL(fileURLWithPath: filePath)
-          
-            if let data = NSData(contentsOfURL: fileUrl){
-                self.profileImage!.image = UIImage.init(data: data)}
+//            let filePath = snap!["userProfilePic"] as! String
+//       
+//          let url = NSURL(string: filePath)
+//            if let data = NSData(contentsOfURL: url!){
+//                self.profileImage!.image = UIImage.init(data: data)}
            
             // ...
         }) { (error) in
@@ -76,5 +88,8 @@ class ProfileViewController: UIViewController {
         }
         
     }
+    
+    
+    
 }//End of the PVC class
 

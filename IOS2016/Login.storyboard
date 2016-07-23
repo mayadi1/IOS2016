@@ -76,6 +76,10 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="kCH-2U-7SR" eventType="touchUpInside" id="34i-8j-OBG"/>
+                                    <segue destination="ZCa-uE-K8f" kind="show" identifier="loginToMap" id="5s4-iP-cTp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.51196853939999998" blue="0.60784313729999995" alpha="0.80107758620000002" colorSpace="calibratedRGB"/>
@@ -97,10 +101,22 @@
                             <constraint firstItem="SrT-cD-0hD" firstAttribute="top" secondItem="meP-Bh-Qbs" secondAttribute="bottom" constant="15" id="z8d-wH-DWt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="SrT-cD-0hD" id="yOx-Zb-FAN"/>
+                        <outlet property="userNameField" destination="meP-Bh-Qbs" id="PY7-tA-YMf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcI-bE-FCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="696" y="46"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="MiU-Jc-fgQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="ZCa-uE-K8f" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-LF-abQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1154.5" y="54"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="NhR-yr-ryw">

@@ -18,7 +18,35 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
         super.viewDidLoad()
         
         
+        let ref = FIRDatabase.database().reference()
         
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("users").child(userID!).child("userProfilePic").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            // Get user value
+            
+            let filePath = snapshot.value as! String
+            
+            let url = NSURL(string: filePath)
+            if let data = NSData(contentsOfURL: url!){
+                
+                
+                 UIImage.init(data: data)
+            
+                var image = UIImage.init(data: data)
+
+                let defaults = NSUserDefaults.standardUserDefaults()
+                var imgData = UIImageJPEGRepresentation(image!, 1)
+                defaults.setObject(imgData, forKey: "image")
+
+            
+            
+            }
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
        
 
         

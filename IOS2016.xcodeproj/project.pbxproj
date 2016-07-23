@@ -11,6 +11,7 @@
 		180987401D436DA1006C7883 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809873F1D436DA1006C7883 /* LoginViewController.swift */; };
 		180987421D436F08006C7883 /* AccountCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987411D436F08006C7883 /* AccountCViewController.swift */; };
 		180987441D437147006C7883 /* ValuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987431D437147006C7883 /* ValuesViewController.swift */; };
+		1809874A1D438BB6006C7883 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987491D438BB6006C7883 /* ProfileViewController.swift */; };
 		18432C471D43396F00E67B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C461D43396F00E67B27 /* AppDelegate.swift */; };
 		18432C491D43396F00E67B27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C481D43396F00E67B27 /* ViewController.swift */; };
 		18432C4C1D43396F00E67B27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18432C4A1D43396F00E67B27 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		1809873F1D436DA1006C7883 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		180987411D436F08006C7883 /* AccountCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCViewController.swift; sourceTree = "<group>"; };
 		180987431D437147006C7883 /* ValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesViewController.swift; sourceTree = "<group>"; };
+		180987491D438BB6006C7883 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18432C431D43396F00E67B27 /* IOS2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18432C461D43396F00E67B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18432C481D43396F00E67B27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */,
 				18432C4F1D43396F00E67B27 /* LaunchScreen.storyboard */,
 				18432C5A1D43474100E67B27 /* Assets.xcassets */,
+				180987491D438BB6006C7883 /* ProfileViewController.swift */,
 				18432C521D43396F00E67B27 /* Info.plist */,
 				18432C581D433C8C00E67B27 /* GoogleService-Info.plist */,
 			);
@@ -234,6 +237,7 @@
 				180987421D436F08006C7883 /* AccountCViewController.swift in Sources */,
 				180987441D437147006C7883 /* ValuesViewController.swift in Sources */,
 				18432C5D1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift in Sources */,
+				1809874A1D438BB6006C7883 /* ProfileViewController.swift in Sources */,
 				18432C491D43396F00E67B27 /* ViewController.swift in Sources */,
 				18432C471D43396F00E67B27 /* AppDelegate.swift in Sources */,
 			);

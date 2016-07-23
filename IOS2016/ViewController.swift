@@ -18,7 +18,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
         super.viewDidLoad()
         
         
-        
+        self.hideKeyboardWhenTappedAround()
+
         self.mainImageView.layer.cornerRadius = 20;
         self.mainImageView.clipsToBounds = true;
         
@@ -71,3 +72,18 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
     
 }//End of the VC class
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    
+    
+    
+}//End of the extension

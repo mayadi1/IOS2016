@@ -27,7 +27,8 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.hideKeyboardWhenTappedAround()
+
         
     }
 

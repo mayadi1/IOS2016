@@ -50,11 +50,6 @@ class ProfileViewController: UITableViewController {
 
         let user = FIRAuth.auth()?.currentUser
 
-        
-      
-        
-        
-        
         let ref = FIRDatabase.database().reference()
         
         let userID = FIRAuth.auth()?.currentUser?.uid

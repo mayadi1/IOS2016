@@ -7,21 +7,66 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
-class MessageViewController: UIViewController {
-
+class MessageViewController: JSQMessagesViewController {
+    
+    var messages = [JSQMessage]()
+    var outgoingBubbleImageView: JSQMessagesBubbleImage!
+    var incomingBubbleImageView: JSQMessagesBubbleImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupBubbles()
+        
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
     }
     
+    private func setupBubbles() {
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleBlueColor())
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+    override func collectionView(collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        let message = messages[indexPath.item] // 1
+        if message.senderId == senderId { // 2
+            return outgoingBubbleImageView
+        } else { // 3
+            return incomingBubbleImageView
+        }
+    }
 
+
+    func addMessage(id: String, text: String) {
+        let message = JSQMessage(senderId: id, displayName: "", text: text)
+        messages.append(message)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // messages from someone else
+        addMessage("foo", text: "Hey person!")
+        // messages sent from local sender
+        addMessage(senderId, text: "Yo!")
+        addMessage(senderId, text: "I like turtles!")
+        // animates the receiving of a new message on the view
+        finishReceivingMessage()
+    }
     /*
     // MARK: - Navigation
 

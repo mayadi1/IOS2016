@@ -34,18 +34,42 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
+    
     func selectPhoto(tap: UITapGestureRecognizer) {
+        
+        
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = true
-        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            self.imagePicker.sourceType = .Camera
+        
+        let photoOptionAlertController = UIAlertController(title: "SourceType?", message: nil, preferredStyle: .Alert)
+        
+        let cameraAction = UIAlertAction(title: "Take a Camera Shot", style: .Default, handler: { (UIAlertAction) in
             
-        }else{
+            self.imagePicker.sourceType = .Camera
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            
+            
+        })
+        
+        let photoLibraryAction = UIAlertAction(title: "Choose from Photo Library", style: .Default, handler: { (UIAlertAction) in
+            
             self.imagePicker.sourceType = .PhotoLibrary
+            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (UIAlertAction) in
+            
+            // ..
         }
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        
+        photoOptionAlertController.addAction(cameraAction)
+        photoOptionAlertController.addAction(photoLibraryAction)
+        photoOptionAlertController.addAction(cancelAction)
+        
+        self.presentViewController(photoOptionAlertController, animated: true, completion: nil)
     }
-    
+
  
     
     

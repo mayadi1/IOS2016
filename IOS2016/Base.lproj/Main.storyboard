@@ -390,7 +390,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="QNW-oJ-jkC" kind="presentation" id="qg2-g4-YYS"/>
+                                    <segue destination="QNW-oJ-jkC" kind="presentation" identifier="infoProfile" id="qg2-g4-YYS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aVD-yN-yMa">

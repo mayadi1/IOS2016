@@ -18,6 +18,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
         super.viewDidLoad()
         
         
+        
+       
+
+        
+        /// let ref = FIRDatabase.database().reference()
+        
+        
         self.hideKeyboardWhenTappedAround()
 
         self.mainImageView.layer.cornerRadius = 20;

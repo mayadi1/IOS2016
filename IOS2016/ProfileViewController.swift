@@ -16,15 +16,15 @@ class ProfileViewController: UITableViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    @IBOutlet weak var nameAge: UITextField!
-    @IBOutlet weak var jobTitle: UITextField!
-    @IBOutlet weak var employer: UITextField!
-    @IBOutlet weak var school: UITextField!
-    @IBOutlet weak var PoliticalIdeology: UITextField!
+    @IBOutlet weak var nameAge: UILabel!
+    @IBOutlet weak var jobTitle: UILabel!
+    @IBOutlet weak var employer: UILabel!
+    @IBOutlet weak var school: UILabel!
+    @IBOutlet weak var PoliticalIdeology: UILabel!
     
-    @IBOutlet weak var partyAffiliation: UITextField!
+    @IBOutlet weak var partyAffiliation: UILabel!
 
-    @IBOutlet weak var religion: UITextField!
+    @IBOutlet weak var religion: UILabel!
     
     @IBOutlet weak var bio: UITextView!
 
@@ -88,7 +88,24 @@ class ProfileViewController: UITableViewController {
         }
         
     }
-    
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        try! FIRAuth.auth()!.signOut()
+        
+        // Facebook log out by setting access token to nil, then sending back to the initial viewcontroller.
+        
+//        FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        try! FIRAuth.auth()!.signOut()
+        print("signed out")
+        
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let ViewController: UIViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LoginView")
+        
+        self.presentViewController(ViewController, animated: true, completion: nil)
+        
+
+        
+    }
     
     
 }//End of the PVC class

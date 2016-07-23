@@ -14,9 +14,11 @@ import FirebaseAuth
 class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     
+    @IBOutlet weak var activityAnimation: UIActivityIndicatorView!
     var temp1: String?
     var temp2: String?
     var temp3: String?
+    @IBOutlet weak var doneButton: UIButton!
     
     var passedName: String?
     var passedEmail: String?
@@ -41,7 +43,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.activityAnimation.hidden = true
         self.hideKeyboardWhenTappedAround()
 
         
@@ -127,8 +129,10 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         return newImage
     }
     @IBAction func doneButtonPressed(sender: AnyObject) {
+        self.doneButton.enabled = false
         
-        
+        self.activityAnimation.hidden = false
+        self.activityAnimation.startAnimating()
         var data = NSData()
         
         let newImage = self.ResizeImage(self.image!,targetSize: CGSizeMake(390, 390.0))
@@ -245,5 +249,8 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     
     var fileUrl: String!
 
+    @IBAction func goBuckButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }//End of VC class

@@ -98,5 +98,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dvc.image = self.selectedPhoto
         
     }
+    @IBAction func gobackButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }//End of the class

@@ -8,12 +8,13 @@ target 'IOS2016' do
   # Pods for IOS2016
 
 pod 'Firebase'
-pod ‘Firebase/Auth’
+pod 'Firebase/Auth’
 pod 'Firebase/Database'
 pod 'Firebase/Storage’
-pod ‘FBSDKCoreKit'
-pod ’FBSDKLoginKit'
-pod ’FBSDKShareKit’
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit’
+pod 'JSQMessagesViewController'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'

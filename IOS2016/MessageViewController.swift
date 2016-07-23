@@ -7,21 +7,57 @@
 //
 
 import UIKit
+import Firebase
+import JSQMessagesViewController
 
-class MessageViewController: UIViewController {
-
+class MessageViewController: JSQMessagesViewController {
+    
+    var messages = [JSQMessage]()
+    var outgoingBubbleImageView : JSQMessagesBubbleImage!
+    var incomingBubbleImageView : JSQMessagesBubbleImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupBubbles()
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 20, height: 20)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize(width: 20, height: 20)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
     }
     
-
+    override func collectionView(collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    private func setupBubbles() {
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleBlueColor())
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleLightGrayColor())
+    }
+    
+    func addMessage(id: String, text: String) {
+        let message = JSQMessage(senderId: id, displayName: "", text: text)
+        messages.append(message)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // messages from someone else
+        addMessage("foo", text: "Hey person!")
+        // messages sent from local sender
+        addMessage(senderId, text: "Yo!")
+        addMessage(senderId, text: "I like turtles!")
+        // animates the receiving of a new message on the view
+        finishReceivingMessage()
+    }
+    
     /*
     // MARK: - Navigation
 

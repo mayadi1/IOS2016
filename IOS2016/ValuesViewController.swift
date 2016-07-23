@@ -7,10 +7,25 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseAuth
 
 class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
-
     
+    
+    var temp1: String?
+    var temp2: String?
+    var temp3: String?
+    
+    var passedName: String?
+    var passedEmail: String?
+    var passedPassword: String?
+    var image: UIImage?
+    
+    let rootRef = FIRDatabase.database().reference()
+    let user = FIRAuth.auth()?.currentUser
+
     
     var data = ["Political Ideology", "Absolutist", "Anarchist", "Capitalist", "Communist", "Conservative", "Environmentalist", "Liberal", "Socialist", "Other"]
     
@@ -70,9 +85,151 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //info selected
+
+        if pickerView.tag == 1{
+            self.temp1  = self.data[row]
+            
+        }
+        if pickerView.tag == 2{
+            self.temp2  = self.data2[row]
+            
+            
+        }
+        if pickerView.tag == 3{
+            self.temp3  = self.data3[row]
+            
+        }
+        
+    }
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        
+        
+        var data = NSData()
+        
+        let newImage = self.ResizeImage(self.image!,targetSize: CGSizeMake(390, 390.0))
+        data = UIImageJPEGRepresentation(newImage, 0.1)!
+        
+        
+        
+        FIRAuth.auth()?.createUserWithEmail(self.passedEmail!, password: self.passedPassword!, completion: { (user, error) in
+            if let error = error {
+                
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                    
+                }
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true, completion:nil)
+                
+                
+                
+                
+                
+                
+                return
+            }else{
+                let rootRef = FIRDatabase.database().reference()
+                
+                rootRef.child("users").child("\(user!.uid)").child("username").setValue(self.passedName)
+                rootRef.child("users").child("\(user!.uid)").child("useruid").setValue("\(user!.uid)")
+                rootRef.child("users").child("\(user!.uid)").child("useremail").setValue(self.passedEmail)
+                
+                rootRef.child("users").child("\(user!.uid)").child("follow").setValue("0")
+                rootRef.child("users").child("\(user!.uid)").child("valid").setValue("yes")
+                
+                
+                rootRef.child("users").child("\(user!.uid)").child("value1").setValue(self.temp1)
+                rootRef.child("users").child("\(user!.uid)").child("value2").setValue(self.temp2)
+                rootRef.child("users").child("\(user!.uid)").child("value3").setValue(self.temp3)
+
+                
+                
+                let changeRequest = user?.profileChangeRequest()
+                changeRequest?.displayName = self.passedName
+                changeRequest?.commitChangesWithCompletion({ (error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        
+                        
+                        
+                        
+                        return
+                    }
+                    
+                    
+                })
+                let filePath = "profileImage/\(user!.uid)"
+                let metadata =  FIRStorageMetadata()
+                metadata.contentType = "image/jpeg"
+                
+                self.storageRef.child(filePath).putData(data, metadata: metadata, completion: { (metadata, error) in
+                    if let error = error{
+                        print("\(error.description)")
+                        return
+                    }
+                    self.fileUrl = metadata?.downloadURLs![0].absoluteString
+                    rootRef.child("users").child("\(user!.uid)").child("userProfilePic").setValue(self.fileUrl)
+                    let changeREquestPhoto = user!.profileChangeRequest()
+                    changeREquestPhoto.photoURL = NSURL(string: self.fileUrl)
+                    changeREquestPhoto.commitChangesWithCompletion({ (error) in
+                        if let error = error{
+                            print(error.localizedDescription)
+                            return
+                        }else{
+                            print("Profile Updated")
+                            
+                        }
+                    })
+                    
+                })
+                
+                
+                
+            }
+            
+        })
+
+        FIRAuth.auth()?.signInWithEmail(self.passedEmail!, password: self.passedPassword!) { (user, error) in
+         
+    
+        }
+        
+    }
+
+    var storageRef: FIRStorageReference{
+        return FIRStorage.storage().reference()
+        
     }
     
+    var fileUrl: String!
 
     
 }//End of VC class

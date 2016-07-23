@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>901121524969-p5voncu5fke9nrmis4g1nlib9tctrfke.apps.googleusercontent.com</string>
+	<string>698100681913-e2f8er2hsohhiub9k7m1lq48rfhh1c69.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.901121524969-p5voncu5fke9nrmis4g1nlib9tctrfke</string>
+	<string>com.googleusercontent.apps.698100681913-e2f8er2hsohhiub9k7m1lq48rfhh1c69</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBZh8_1tAKS_fo_p71uQplz_fFnxsZHewM</string>
+	<string>AIzaSyAhjEOi0spKrtw66KL5OnOZt3R8G-lQ8sE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>901121524969</string>
+	<string>698100681913</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.ayadios.IOS2016</string>
 	<key>PROJECT_ID</key>
-	<string>ios2016-6c256</string>
+	<string>datingapp-8773f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ios2016-6c256.appspot.com</string>
+	<string>datingapp-8773f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:901121524969:ios:be8d12bf80a9bda3</string>
+	<string>1:698100681913:ios:be8d12bf80a9bda3</string>
 	<key>DATABASE_URL</key>
-	<string>https://ios2016-6c256.firebaseio.com</string>
+	<string>https://datingapp-8773f.firebaseio.com</string>
 </dict>
 </plist>

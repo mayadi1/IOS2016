@@ -35,7 +35,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="5Eu-8Q-qfe" kind="show" id="Rft-Zr-RqB"/>
+                                    <segue destination="5Eu-8Q-qfe" kind="show" id="6rJ-cE-a6v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdr-v5-cIy">
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="696" y="46"/>
         </scene>
-        <!--AccountC View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="NhR-yr-ryw">
             <objects>
-                <viewController id="5Eu-8Q-qfe" customClass="AccountCViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5Eu-8Q-qfe" customClass="SignUpViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PbM-Xd-VwU"/>
                         <viewControllerLayoutGuide type="bottom" id="M3k-qS-PPX"/>
@@ -157,6 +157,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="CreateAccount:" destination="5Eu-8Q-qfe" eventType="touchUpInside" id="Mxb-3O-Dd5"/>
                                     <segue destination="XGO-T4-Vxu" kind="show" id="jC2-Uo-LLT"/>
                                 </connections>
                             </button>
@@ -217,12 +218,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="YQM-Uc-i07" id="h4m-bI-agD"/>
-                        <outlet property="email" destination="VGQ-3l-vct" id="BWc-zS-pXJ"/>
-                        <outlet property="fullName" destination="IqD-hP-qhG" id="GHR-Un-pSr"/>
-                        <outlet property="genderSeg" destination="xUZ-Mb-Bvp" id="In2-iL-mdV"/>
-                        <outlet property="password" destination="FLu-tD-pem" id="X6e-ua-QBO"/>
-                        <outlet property="profileImage" destination="jf0-zg-7Hv" id="nuB-RO-aZD"/>
+                        <outlet property="emailText" destination="VGQ-3l-vct" id="lIv-tt-INx"/>
+                        <outlet property="passwordText" destination="FLu-tD-pem" id="7lV-Pl-Ejs"/>
+                        <outlet property="profileImage" destination="jf0-zg-7Hv" id="879-Yv-0O3"/>
+                        <outlet property="userNamerTextField" destination="IqD-hP-qhG" id="iOt-mf-JQB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGG-9D-8yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,7 +243,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-Ac-J1O">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
                                 <subviews>
-                                    <pickerView tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-V0-19j">
+                                    <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUC-V0-19j">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="187"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="rue-pN-zVS"/>
@@ -254,14 +253,14 @@
                                             <outlet property="delegate" destination="XGO-T4-Vxu" id="Fgw-ku-8Py"/>
                                         </connections>
                                     </pickerView>
-                                    <pickerView tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-aW-wW1">
+                                    <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-aW-wW1">
                                         <rect key="frame" x="0.0" y="187" width="600" height="186"/>
                                         <connections>
                                             <outlet property="dataSource" destination="XGO-T4-Vxu" id="cjC-mf-eJo"/>
                                             <outlet property="delegate" destination="XGO-T4-Vxu" id="oMl-O0-BA8"/>
                                         </connections>
                                     </pickerView>
-                                    <pickerView tag="3" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-xb-4IO">
+                                    <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-xb-4IO">
                                         <rect key="frame" x="0.0" y="373" width="600" height="187"/>
                                         <connections>
                                             <outlet property="dataSource" destination="XGO-T4-Vxu" id="OTp-8d-d3y"/>
@@ -287,6 +286,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="doneButtonPressed:" destination="XGO-T4-Vxu" eventType="touchUpInside" id="oLz-Dn-aS6"/>
                                     <segue destination="AqU-Ji-tsA" kind="show" id="aGb-CZ-DDc"/>
                                 </connections>
                             </button>

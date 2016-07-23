@@ -303,7 +303,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="XGO-T4-Vxu" eventType="touchUpInside" id="oLz-Dn-aS6"/>
-                                    <segue destination="AqU-Ji-tsA" kind="show" id="aGb-CZ-DDc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -327,14 +326,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9c-JB-ib8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="689" y="1585"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="ixk-x6-i7G">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="AqU-Ji-tsA" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R3w-J7-RpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="689" y="2032"/>
         </scene>
     </scenes>
     <resources>

@@ -185,6 +185,9 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                     }
                     
                     
+                    
+                    
+                    
                 })
                 let filePath = "profileImage/\(user!.uid)"
                 let metadata =  FIRStorageMetadata()
@@ -193,6 +196,9 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 self.storageRef.child(filePath).putData(data, metadata: metadata, completion: { (metadata, error) in
                     if let error = error{
                         print("\(error.description)")
+                        
+                        
+                        
                         return
                     }
                     self.fileUrl = metadata?.downloadURLs![0].absoluteString
@@ -205,6 +211,12 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                             return
                         }else{
                             print("Profile Updated")
+                            
+                            let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            
+                            let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("TabBarView")
+                            
+                            self.presentViewController(MapViewController, animated: false, completion: nil)
                             
                         }
                     })
@@ -219,6 +231,8 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
 
         FIRAuth.auth()?.signInWithEmail(self.passedEmail!, password: self.passedPassword!) { (user, error) in
          
+           
+
     
         }
         

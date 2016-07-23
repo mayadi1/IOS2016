@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.51196853939999998" blue="0.60784313729999995" alpha="0.80107758620000002" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.51196853939999998" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rdr-v5-cIy" firstAttribute="trailing" secondItem="zh0-4e-cXI" secondAttribute="trailing" id="24s-Ks-YbM"/>
                             <constraint firstAttribute="trailing" secondItem="zh0-4e-cXI" secondAttribute="trailing" id="4ZJ-GC-wIQ"/>
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcI-bE-FCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="46"/>
+            <point key="canvasLocation" x="592" y="193"/>
         </scene>
         <!--Main-->
         <scene sceneID="MiU-Jc-fgQ">
@@ -116,7 +116,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="ZCa-uE-K8f" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-LF-abQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1154.5" y="54"/>
+            <point key="canvasLocation" x="690" y="-368"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="NhR-yr-ryw">
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGG-9D-8yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="713"/>
+            <point key="canvasLocation" x="1216" y="193"/>
         </scene>
         <!--Values View Controller-->
         <scene sceneID="RxA-fP-uNH">
@@ -424,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9c-JB-ib8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="1585"/>
+            <point key="canvasLocation" x="934" y="859"/>
         </scene>
     </scenes>
     <resources>

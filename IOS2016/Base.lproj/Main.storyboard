@@ -200,6 +200,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noun-project-330" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-oq-Y6f">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbs-down-512" translatesAutoresizingMaskIntoConstraints="NO" id="pQe-wZ-Xrj">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -212,11 +215,14 @@
                             <constraint firstItem="Yyb-Wq-idC" firstAttribute="leading" secondItem="JyO-3w-ZEO" secondAttribute="leading" id="DpW-OO-f3w"/>
                             <constraint firstItem="aVD-yN-yMa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GLp-L7-bhh"/>
                             <constraint firstItem="JyO-3w-ZEO" firstAttribute="top" secondItem="9bF-oQ-JKE" secondAttribute="bottom" constant="8" symbolic="YES" id="HjH-lN-wsF"/>
+                            <constraint firstItem="pQe-wZ-Xrj" firstAttribute="trailing" secondItem="GOR-z2-8bB" secondAttribute="trailing" id="IC6-SE-nyP"/>
                             <constraint firstItem="JtO-iB-C1v" firstAttribute="bottom" secondItem="aVD-yN-yMa" secondAttribute="bottom" id="K9D-2c-XFc"/>
                             <constraint firstItem="ti2-ON-U91" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="171" id="KR1-dg-w2y">
                                 <variation key="heightClass=regular-widthClass=compact" constant="187"/>
                             </constraint>
+                            <constraint firstItem="pQe-wZ-Xrj" firstAttribute="bottom" secondItem="oXt-oq-Y6f" secondAttribute="bottom" id="LgV-cf-3qo"/>
                             <constraint firstItem="Yyb-Wq-idC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="Mtu-2w-Nzc"/>
+                            <constraint firstItem="pQe-wZ-Xrj" firstAttribute="leading" secondItem="aVD-yN-yMa" secondAttribute="leading" id="Pyi-Cu-tUs"/>
                             <constraint firstItem="JyO-3w-ZEO" firstAttribute="centerX" secondItem="aVD-yN-yMa" secondAttribute="centerX" id="Qxc-Pp-9gi"/>
                             <constraint firstItem="aVD-yN-yMa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TF3-ZH-MTG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="216"/>
@@ -228,6 +234,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
                             <constraint firstItem="Yyb-Wq-idC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="7" id="qnw-Es-Epc"/>
+                            <constraint firstItem="pQe-wZ-Xrj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="155" id="qoJ-4K-0yG"/>
                             <constraint firstItem="JtO-iB-C1v" firstAttribute="top" secondItem="aVD-yN-yMa" secondAttribute="top" id="tUz-hW-tjA"/>
                             <constraint firstAttribute="bottom" secondItem="JyO-3w-ZEO" secondAttribute="bottom" constant="20" symbolic="YES" id="ufJ-rX-7ym"/>
                             <constraint firstItem="GOR-z2-8bB" firstAttribute="trailing" secondItem="JtO-iB-C1v" secondAttribute="trailing" id="z1g-kK-gwp">
@@ -245,6 +252,7 @@
                                 <exclude reference="GOR-z2-8bB"/>
                                 <exclude reference="9bF-oQ-JKE"/>
                                 <exclude reference="oXt-oq-Y6f"/>
+                                <exclude reference="pQe-wZ-Xrj"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="DpW-OO-f3w"/>
@@ -254,6 +262,10 @@
                                 <exclude reference="Qxc-Pp-9gi"/>
                                 <exclude reference="ufJ-rX-7ym"/>
                                 <exclude reference="zc1-48-uIJ"/>
+                                <exclude reference="IC6-SE-nyP"/>
+                                <exclude reference="LgV-cf-3qo"/>
+                                <exclude reference="Pyi-Cu-tUs"/>
+                                <exclude reference="qoJ-4K-0yG"/>
                                 <exclude reference="Avt-yK-36c"/>
                                 <exclude reference="BRA-NJ-HGP"/>
                                 <exclude reference="gcR-nR-hj7"/>
@@ -279,6 +291,7 @@
                                 <include reference="GOR-z2-8bB"/>
                                 <include reference="9bF-oQ-JKE"/>
                                 <include reference="oXt-oq-Y6f"/>
+                                <include reference="pQe-wZ-Xrj"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="DpW-OO-f3w"/>
@@ -288,6 +301,10 @@
                                 <include reference="Qxc-Pp-9gi"/>
                                 <include reference="ufJ-rX-7ym"/>
                                 <include reference="zc1-48-uIJ"/>
+                                <include reference="IC6-SE-nyP"/>
+                                <include reference="LgV-cf-3qo"/>
+                                <include reference="Pyi-Cu-tUs"/>
+                                <include reference="qoJ-4K-0yG"/>
                                 <include reference="Avt-yK-36c"/>
                                 <include reference="BRA-NJ-HGP"/>
                                 <include reference="gcR-nR-hj7"/>
@@ -311,9 +328,15 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="down" destination="pQe-wZ-Xrj" id="Ipo-6I-PF5"/>
                         <outlet property="infoView" destination="aVD-yN-yMa" id="Am9-Qh-gNP"/>
+                        <outlet property="labelll" destination="GOR-z2-8bB" id="IF9-OV-38h"/>
                         <outlet property="likeImage" destination="oXt-oq-Y6f" id="WZg-68-ter"/>
+                        <outlet property="location" destination="M6Y-1o-aG1" id="oxs-YW-0mP"/>
                         <outlet property="mainImageView" destination="JyO-3w-ZEO" id="J7W-gh-sLz"/>
+                        <outlet property="nameandage" destination="ckV-Ma-aQ4" id="t59-kK-kUk"/>
+                        <outlet property="party" destination="Mxf-WX-0pe" id="dQn-8W-4wY"/>
+                        <outlet property="political" destination="VN0-PA-Nah" id="qR3-cL-h8r"/>
                         <segue destination="XjT-xC-OaH" kind="popoverPresentation" identifier="showInfo" popoverAnchorView="ti2-ON-U91" id="3hH-o0-bAP">
                             <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                         </segue>
@@ -2488,5 +2511,6 @@
         <image name="Screen Shot 2016-07-12 at 9.03.51 AM" width="217" height="224"/>
         <image name="no-profile-img" width="240" height="300"/>
         <image name="noun-project-330" width="2292" height="2400"/>
+        <image name="thumbs-down-512" width="200" height="200"/>
     </resources>
 </document>

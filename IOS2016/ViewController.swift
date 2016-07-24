@@ -12,6 +12,20 @@ import FirebaseAuth
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet weak var nameandage: UITextField!
+    
+    @IBOutlet weak var location: UITextField!
+    
+    @IBOutlet weak var political: UITextField!
+    
+    @IBOutlet weak var party: UITextField!
+    
+    @IBOutlet weak var labelll: UILabel!
+    
+    
+    var count = 0
+    
+    @IBOutlet weak var down: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -19,7 +33,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         super.viewDidLoad()
         self.likeImage.hidden = true
 
-        
+        self.down.hidden = true
 
         
         
@@ -134,20 +148,45 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
        
                 
                 self.likeImage.hidden = false
+
+                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 print("Swiped right")
-                sleep(1)
-                print("check ti")
+              
+                
+                if self.count == 0{
+                self.nameandage.text = "Alex, 30"
+                self.location.text = "San jose"
+                self.political.text = " "
+                self.party.text = " "
+                self.labelll.text = "7'' 4'"
+                
+                self.mainImageView.image = UIImage.init(named: "url-28")
+                self.count = self.count + 1
+                }
+                
                 
 
             case UISwipeGestureRecognizerDirection.Left:
                 print("Swiped left")
+                self.down.hidden = false
+                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+                
+
                 
             default:
                 break
             }
         }
     }
-
+    
+    
+    
+    func dismissAlert()
+    {
+        self.likeImage.hidden = true
+        self.down.hidden = true
+        
+    }
     
 }//End of the VC class
 

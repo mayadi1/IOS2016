@@ -13,6 +13,7 @@
 		180494461D449E5400F8718D /* PoliticalIdeologyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180494451D449E5400F8718D /* PoliticalIdeologyViewController.swift */; };
 		180494481D449E7E00F8718D /* PartyAfiliationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180494471D449E7E00F8718D /* PartyAfiliationViewController.swift */; };
 		1804944A1D449EAF00F8718D /* LifestyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180494491D449EAF00F8718D /* LifestyleViewController.swift */; };
+		1804944C1D45248E00F8718D /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804944B1D45248E00F8718D /* MainLoginViewController.swift */; };
 		1809873E1D436D6C006C7883 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1809873D1D436D6C006C7883 /* Login.storyboard */; };
 		180987401D436DA1006C7883 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809873F1D436DA1006C7883 /* LoginViewController.swift */; };
 		180987421D436F08006C7883 /* AccountCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987411D436F08006C7883 /* AccountCViewController.swift */; };
@@ -37,6 +38,7 @@
 		180494451D449E5400F8718D /* PoliticalIdeologyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliticalIdeologyViewController.swift; sourceTree = "<group>"; };
 		180494471D449E7E00F8718D /* PartyAfiliationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyAfiliationViewController.swift; sourceTree = "<group>"; };
 		180494491D449EAF00F8718D /* LifestyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifestyleViewController.swift; sourceTree = "<group>"; };
+		1804944B1D45248E00F8718D /* MainLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
 		1809873D1D436D6C006C7883 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		1809873F1D436DA1006C7883 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		180987411D436F08006C7883 /* AccountCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +101,10 @@
 				180494411D445FC600F8718D /* EthnicityViewController.swift */,
 				1804943F1D445F1700F8718D /* ReligionViewController.swift */,
 				1809873D1D436D6C006C7883 /* Login.storyboard */,
+				1804944B1D45248E00F8718D /* MainLoginViewController.swift */,
+				1809873F1D436DA1006C7883 /* LoginViewController.swift */,
 				180987431D437147006C7883 /* ValuesViewController.swift */,
 				180987411D436F08006C7883 /* AccountCViewController.swift */,
-				1809873F1D436DA1006C7883 /* LoginViewController.swift */,
 				18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */,
 				18432C4F1D43396F00E67B27 /* LaunchScreen.storyboard */,
 				18432C5A1D43474100E67B27 /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 				1809874A1D438BB6006C7883 /* ProfileViewController.swift in Sources */,
 				180494421D445FC600F8718D /* EthnicityViewController.swift in Sources */,
 				180494401D445F1700F8718D /* ReligionViewController.swift in Sources */,
+				1804944C1D45248E00F8718D /* MainLoginViewController.swift in Sources */,
 				180494461D449E5400F8718D /* PoliticalIdeologyViewController.swift in Sources */,
 				180494441D44783800F8718D /* InfoTableViewController.swift in Sources */,
 				18432C491D43396F00E67B27 /* ViewController.swift in Sources */,

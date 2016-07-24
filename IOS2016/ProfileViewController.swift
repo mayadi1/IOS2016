@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 import FirebaseAuth
+import FBSDKCoreKit
 
 class ProfileViewController: UITableViewController {
     
@@ -93,7 +94,7 @@ class ProfileViewController: UITableViewController {
         
         // Facebook log out by setting access token to nil, then sending back to the initial viewcontroller.
         
-//        FBSDKAccessToken.setCurrentAccessToken(nil)
+      FBSDKAccessToken.setCurrentAccessToken(nil)
         
         try! FIRAuth.auth()!.signOut()
         print("signed out")

@@ -10,12 +10,27 @@ import UIKit
 import Firebase
 
 
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeDown)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeUp)
+        
+        
+
         
         
         let ref = FIRDatabase.database().reference()
@@ -104,6 +119,28 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
         
         return .None
     }
+    
+    
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.Right:
+                print("Swiped right")
+
+            case UISwipeGestureRecognizerDirection.Left:
+                print("Swiped left")
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    
     
 }//End of the VC class
 

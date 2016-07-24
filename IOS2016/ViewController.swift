@@ -129,6 +129,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
+                
+                
+                
                 print("Swiped right")
 
             case UISwipeGestureRecognizerDirection.Left:

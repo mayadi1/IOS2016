@@ -14,6 +14,8 @@ import FirebaseDatabase
 
 class ProfileTVC: UITableViewController {
 
+    
+    
     var dummyData = ["Job Title", "Employer", "School", "Languages", "Religion", "About me"]
     override func viewDidLoad() {
         super.viewDidLoad()

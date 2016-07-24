@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         
         FIRApp.configure()
-        
+        sleep(1)
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

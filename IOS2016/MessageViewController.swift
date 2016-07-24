@@ -21,7 +21,6 @@ class MessageViewController: JSQMessagesViewController {
 //    let rootRef = FIRDatabase.database().reference()
     var messageRef = FIRDatabase.database().reference().child("users").setValue("messages")
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +29,11 @@ class MessageViewController: JSQMessagesViewController {
         
         setupBubbles()
         self.setup()
-        self.addDemoMessages()
+//        addMessages()
+//        self.addDemoMessages()
         
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 20, height: 20)
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize(width: 20, height: 20)
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
     }
 
     private func setupBubbles() {
@@ -47,16 +47,16 @@ class MessageViewController: JSQMessagesViewController {
     func reloadMessagesView() {
         self.collectionView?.reloadData()
     }
-        func addDemoMessages() {
-            for i in 1...10 {
-                let sender = (i%2 == 0) ? "Server" : self.senderId
-                let messageContent = "Message nr. \(i)"
-                let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
-                self.messages += [message]
-            }
-            self.reloadMessagesView()
-    }
-    
+//        func addMessages() {
+//            for i in 1...10 {
+//                let sender = (i%2 == 0) ? "Server" : self.senderId
+//                let messageContent = "Message nr. \(i)"
+//                let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
+//                self.messages += [message]
+//            }
+//            self.reloadMessagesView()
+//    }
+//    
     func setup() {
         self.senderId = self.user?.uid
         self.senderDisplayName = self.user?.displayName
@@ -87,16 +87,16 @@ class MessageViewController: JSQMessagesViewController {
         return messages[indexPath.item]
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        // messages from someone else
-//        addMessage("foo", text: "Hey person!")
-//        // messages sent from local sender
-//        addMessage(senderId, text: "Yo!")
-//        addMessage(senderId, text: "I like turtles!")
-//        // animates the receiving of a new message on the view
-//        finishReceivingMessage()
-//    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // messages from someone else
+        addMessage("foo", text: "Hey person!")
+        // messages sent from local sender
+        addMessage(senderId, text: "Yo!")
+        addMessage(senderId, text: "I like turtles!")
+        // animates the receiving of a new message on the view
+        finishReceivingMessage()
+    }
   
     override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -113,23 +113,25 @@ class MessageViewController: JSQMessagesViewController {
         messages.append(message)
     }
     
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
-                                     senderDisplayName: String!, date: NSDate!) {
-        
-        let itemRef = messageRef.childByAutoId() // 1
-        let messageItem = [ // 2
-            "text": text,
-            "senderId": senderId
-        ]
-        itemRef.setValue(messageItem) // 3
-        
-        // 4
-        JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
-        // 5
-        finishSendingMessage()
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+        return nil
     }
-    
+//    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
+//                                     senderDisplayName: String!, date: NSDate!) {
+//        let messageItem = [ // 2
+//            "text": text,
+//            "senderId": senderId
+//        ]
+//        
+//        let itemRef = FIRDatabase.database().reference().child("users").child("message").setValue(messageItem)
+//        
+//        // 4
+//        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+//        // 5
+//        finishSendingMessage()
+//    }
+//    
     /*
     // MARK: - Navigation
 

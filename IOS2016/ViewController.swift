@@ -158,12 +158,38 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 self.location.text = "San jose"
                 self.political.text = " "
                 self.party.text = " "
-                self.labelll.text = "7'' 4'"
+                self.labelll.text = "6'' 4'"
                 
                 self.mainImageView.image = UIImage.init(named: "url-28")
                 self.count = self.count + 1
+                    return
                 }
                 
+                if self.count == 1{
+                    self.nameandage.text = "Trump, 90"
+                    self.location.text = "Chicago"
+                    self.political.text = " "
+                    self.party.text = " "
+                    self.labelll.text = "7'' 4'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "photo")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                
+                
+                if self.count == 2{
+                    self.nameandage.text = "Mohamed, 21"
+                    self.location.text = "San Francisco"
+                    self.political.text = "Liberal"
+                    self.party.text = "Democrat"
+                    self.labelll.text = "5'' 11'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Screen Shot 2016-07-12 at 9.03.51 AM")
+                    self.count = 0
+                    return
+                }
                 
 
             case UISwipeGestureRecognizerDirection.Left:
@@ -173,6 +199,44 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
 
                 
+                if self.count == 0{
+                    self.nameandage.text = "Alex, 30"
+                    self.location.text = "San jose"
+                    self.political.text = " "
+                    self.party.text = " "
+                    self.labelll.text = "6'' 4'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "url-28")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                if self.count == 1{
+                    self.nameandage.text = "Trump, 90"
+                    self.location.text = "Chicago"
+                    self.political.text = " "
+                    self.party.text = " "
+                    self.labelll.text = "7'' 4'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "photo")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                
+                
+                if self.count == 2{
+                    self.nameandage.text = "Mohamed, 21"
+                    self.location.text = "San Francisco"
+                    self.political.text = "Liberal"
+                    self.party.text = "Democrat"
+                    self.labelll.text = "5'' 11'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Screen Shot 2016-07-12 at 9.03.51 AM")
+                    self.count = 0
+                    return
+                }
+
             default:
                 break
             }

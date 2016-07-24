@@ -38,8 +38,6 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate{
                 var imgData = UIImageJPEGRepresentation(image!, 1)
                 defaults.setObject(imgData, forKey: "image")
 
-            
-            
             }
             
             // ...

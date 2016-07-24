@@ -324,7 +324,7 @@
                                             <outlet property="delegate" destination="XGO-T4-Vxu" id="Fgw-ku-8Py"/>
                                         </connections>
                                     </pickerView>
-                                    <pickerView tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-aW-wW1">
+                                    <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-aW-wW1">
                                         <rect key="frame" x="0.0" y="174" width="600" height="173"/>
                                         <connections>
                                             <outlet property="dataSource" destination="XGO-T4-Vxu" id="cjC-mf-eJo"/>

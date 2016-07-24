@@ -8,21 +8,34 @@
 
 import UIKit
 import JSQMessagesViewController
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class MessageViewController: JSQMessagesViewController {
     
     var messages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
+    let user = FIRAuth.auth()?.currentUser
+//    let rootRef = FIRDatabase.database().reference()
+    var messageRef = FIRDatabase.database().reference().child("users").setValue("messages")
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBubbles()
         
-        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+//        self.user?.displayName
+//        self.user?.uid
+        
+        setupBubbles()
+        self.setup()
+        self.addDemoMessages()
+        
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 20, height: 20)
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize(width: 20, height: 20)
     }
-    
+
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
         outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
@@ -31,16 +44,60 @@ class MessageViewController: JSQMessagesViewController {
             UIColor.jsq_messageBubbleLightGrayColor())
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!,
-                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item]
+    func reloadMessagesView() {
+        self.collectionView?.reloadData()
+    }
+        func addDemoMessages() {
+            for i in 1...10 {
+                let sender = (i%2 == 0) ? "Server" : self.senderId
+                let messageContent = "Message nr. \(i)"
+                let message = JSQMessage(senderId: sender, displayName: sender, text: messageContent)
+                self.messages += [message]
+            }
+            self.reloadMessagesView()
     }
     
+    func setup() {
+        self.senderId = self.user?.uid
+        self.senderDisplayName = self.user?.displayName
+    }
+    
+    override func collectionView(collectionView: UICollectionView,
+                                 cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+            as! JSQMessagesCollectionViewCell
+        
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId {
+            cell.textView!.textColor = UIColor.whiteColor()
+        } else {
+            cell.textView!.textColor = UIColor.blackColor()
+        }
+        return cell
+    }
+
     override func collectionView(collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!,
+                                 messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        // messages from someone else
+//        addMessage("foo", text: "Hey person!")
+//        // messages sent from local sender
+//        addMessage(senderId, text: "Yo!")
+//        addMessage(senderId, text: "I like turtles!")
+//        // animates the receiving of a new message on the view
+//        finishReceivingMessage()
+//    }
+  
     override func collectionView(collectionView: JSQMessagesCollectionView!,
                                  messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item] // 1
@@ -51,22 +108,28 @@ class MessageViewController: JSQMessagesViewController {
         }
     }
 
-
     func addMessage(id: String, text: String) {
         let message = JSQMessage(senderId: id, displayName: "", text: text)
         messages.append(message)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        // messages from someone else
-        addMessage("foo", text: "Hey person!")
-        // messages sent from local sender
-        addMessage(senderId, text: "Yo!")
-        addMessage(senderId, text: "I like turtles!")
-        // animates the receiving of a new message on the view
-        finishReceivingMessage()
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!,
+                                     senderDisplayName: String!, date: NSDate!) {
+        
+        let itemRef = messageRef.childByAutoId() // 1
+        let messageItem = [ // 2
+            "text": text,
+            "senderId": senderId
+        ]
+        itemRef.setValue(messageItem) // 3
+        
+        // 4
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        // 5
+        finishSendingMessage()
     }
+    
     /*
     // MARK: - Navigation
 

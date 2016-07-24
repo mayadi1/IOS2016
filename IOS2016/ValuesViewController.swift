@@ -153,11 +153,6 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 
                 self.presentViewController(alertController, animated: true, completion:nil)
                 
-                
-                
-                
-                
-                
                 return
             }else{
                 let rootRef = FIRDatabase.database().reference()
@@ -175,22 +170,15 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 rootRef.child("users").child("\(user!.uid)").child("value3").setValue(self.temp3)
 
                 
-                
                 let changeRequest = user?.profileChangeRequest()
                 changeRequest?.displayName = self.passedName
                 changeRequest?.commitChangesWithCompletion({ (error) in
                     if let error = error {
                         print(error.localizedDescription)
                         
-                        
-                        
-                        
+            
                         return
                     }
-                    
-                    
-                    
-                    
                     
                 })
                 let filePath = "profileImage/\(user!.uid)"

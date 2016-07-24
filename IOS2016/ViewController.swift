@@ -12,13 +12,15 @@ import FirebaseAuth
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.likeImage.hidden = true
+
         
-        
-        
+
         
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
@@ -129,10 +131,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
+       
                 
-                
-                
+                self.likeImage.hidden = false
                 print("Swiped right")
+                sleep(1)
+                print("check ti")
+                
 
             case UISwipeGestureRecognizerDirection.Left:
                 print("Swiped left")
@@ -142,8 +147,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             }
         }
     }
-    
-    
+
     
 }//End of the VC class
 

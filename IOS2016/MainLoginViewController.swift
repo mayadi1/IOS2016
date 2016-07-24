@@ -28,59 +28,7 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         
         
         
-        
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            if user == nil{
-                
-            } else {
-                
-                // Taking the users child and analyzing if the user is logged in and if they have an address already in the system.
-                let condition = self.usersRef.child("\(user!.uid)")
-                
-                condition.observeEventType(.Value, withBlock:  { (snapshot) in
-                    
-                    if user != nil && snapshot.exists() {
-                        
-                        
-                        self.facebookLoginButton.hidden = true
-                        //         If the user is signed in, show the map page.
-                        
-                        
-                        
-                        
-                        //                            self.performSegueWithIdentifier("loginToMap", sender: self)
-                        
-                        
-                        
-                        let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        
-                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
-                        
-                        self.presentViewController(MapViewController, animated: false, completion: nil)
-                        
-                        
-                        
-                    } else {
-                        //                 If user is signed out, show the login button.
-                        //                 This is the facebook login button.
-                        
-                        print(" I dont exist ")
-                        self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-                        self.facebookLoginButton.delegate = self
-                        
-                        //    self.view!.addSubview(self.loginButton)
-                        
-                        
-                    }
-                    
-                })
-            }
-            
-            
-            
-        }
-        
-        //        self.view!.addSubview(loginButton)
+             //        self.view!.addSubview(loginButton)
         // Do any additional setup after loading the view.
     }
     

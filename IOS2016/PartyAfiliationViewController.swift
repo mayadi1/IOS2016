@@ -35,5 +35,12 @@ class PartyAfiliationViewController: UIViewController , UITableViewDelegate, UIT
 
 
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+    }
 
-}//End of the PartyA VC
+    }//End of the PartyA VC

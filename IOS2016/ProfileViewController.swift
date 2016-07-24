@@ -56,38 +56,7 @@ class ProfileViewController: UITableViewController {
         
         
         
-        let ref = FIRDatabase.database().reference()
-        
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            // Get user value
-            
-            let snap = snapshot.value
-            
-            let name = snap!["username"] as! String
-            self.nameAge.text = name
-            
-            let value1 = snap!["value1"] as! String
-            self.PoliticalIdeology.text = value1
-
-            let value2 = snap!["value2"] as! String
-            self.partyAffiliation.text = value2
-
-            let value3 = snap!["value3"] as! String
-            self.religion.text = value3
-
-            
-//            let filePath = snap!["userProfilePic"] as! String
-//       
-//          let url = NSURL(string: filePath)
-//            if let data = NSData(contentsOfURL: url!){
-//                self.profileImage!.image = UIImage.init(data: data)}
-           
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
+      
     }
     @IBAction func logoutButtonPressed(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()

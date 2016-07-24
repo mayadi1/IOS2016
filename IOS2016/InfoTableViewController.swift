@@ -14,17 +14,39 @@
     import FirebaseDatabase
     
     class InfoTableViewController: UITableViewController {
+        @IBOutlet weak var nnn: UILabel!
+        @IBOutlet weak var age: UILabel!
+        @IBOutlet weak var diss: UISlider!
+        @IBOutlet weak var agleS: UISlider!
         
+        @IBOutlet weak var ageValue: UISlider!
         override func viewDidLoad() {
             super.viewDidLoad()
             self.hideKeyboardWhenTappedAround()
+            
+            
+            
             
             // Do any additional setup after loading the view.
         }
         
         
+        @IBAction func slider(sender: AnyObject) {
+            
+            var num = Int(self.ageValue.value)
+            
+            
+            self.age.text = "\(num)"
+        }
         
         
+        @IBAction func dis(sender: AnyObject) {
+            var num2 = Int(self.diss.value)
+            
+            
+            self.nnn.text = "\(num2)" + " Miles"
+            
+        }
         
         
         

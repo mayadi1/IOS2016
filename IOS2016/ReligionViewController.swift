@@ -33,4 +33,10 @@ class ReligionViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+}
+
 }

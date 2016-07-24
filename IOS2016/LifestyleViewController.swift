@@ -31,4 +31,9 @@ class LifestyleViewController: UIViewController , UITableViewDelegate, UITableVi
         
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+    }
+
 }

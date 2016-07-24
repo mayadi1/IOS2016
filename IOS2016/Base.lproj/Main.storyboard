@@ -31,7 +31,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="TabBarView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -380,6 +380,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="5Vh-LL-989"/>
+                    <connections>
+                        <outlet property="segmentCheck" destination="jRd-54-67x" id="fTp-lL-7xf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZs-Mm-t9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -917,7 +920,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pgE-I8-EBK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell1" id="pgE-I8-EBK">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pgE-I8-EBK" id="Tzd-sD-44h">
@@ -965,7 +968,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9f-dp-WgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="2205"/>
+            <point key="canvasLocation" x="832.5" y="2399.25"/>
+        </scene>
+        <!--Lifestyle View Controller-->
+        <scene sceneID="Tmn-Rc-Ub2">
+            <objects>
+                <viewController id="dfO-Hu-jMB" customClass="LifestyleViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rq8-ne-saZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uj8-Jm-W6w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZMN-P9-0mD">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-60-c4s">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell1" id="08c-Bb-Jhd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="08c-Bb-Jhd" id="TJS-IS-4dM">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dfO-Hu-jMB" id="I17-XE-s0b"/>
+                                    <outlet property="delegate" destination="dfO-Hu-jMB" id="EJR-rj-GEW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K6e-60-c4s" firstAttribute="top" secondItem="ZMN-P9-0mD" secondAttribute="top" id="niO-mJ-UuK"/>
+                            <constraint firstItem="K6e-60-c4s" firstAttribute="bottom" secondItem="Uj8-Jm-W6w" secondAttribute="top" id="pZb-G6-D2s"/>
+                            <constraint firstItem="K6e-60-c4s" firstAttribute="leading" secondItem="ZMN-P9-0mD" secondAttribute="leading" id="rZO-wk-R9x"/>
+                            <constraint firstAttribute="trailing" secondItem="K6e-60-c4s" secondAttribute="trailing" id="rxW-3S-2iG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="K6e-60-c4s"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="niO-mJ-UuK"/>
+                                <exclude reference="pZb-G6-D2s"/>
+                                <exclude reference="rZO-wk-R9x"/>
+                                <exclude reference="rxW-3S-2iG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="K6e-60-c4s"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="niO-mJ-UuK"/>
+                                <include reference="pZb-G6-D2s"/>
+                                <include reference="rZO-wk-R9x"/>
+                                <include reference="rxW-3S-2iG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acG-I9-NBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="2399.25"/>
         </scene>
         <!--Religion View Controller-->
         <scene sceneID="KhT-5h-vFB">
@@ -982,8 +1050,25 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daZ-Md-dRv">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="7N6-Hs-vcE">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem id="pUX-Rx-u7V">
+                                            <nil key="title"/>
+                                            <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WxB-xV-dM6">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Go Back"/>
+                                                <connections>
+                                                    <segue destination="wZB-bv-RbV" kind="unwind" unwindAction="unwindToMenu:" id="1M4-6D-b0H"/>
+                                                </connections>
+                                            </button>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mZ1-I4-biM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell1" id="mZ1-I4-biM">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZ1-I4-biM" id="ECn-Ds-cGv">
@@ -1028,10 +1113,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inP-sD-Mxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wZB-bv-RbV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1857" y="2205"/>
+            <point key="canvasLocation" x="175.5" y="2399.25"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="d0c-uU-RG6">
@@ -1626,10 +1713,10 @@
             </objects>
             <point key="canvasLocation" x="-498" y="1482.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Party Afiliation View Controller-->
         <scene sceneID="gxJ-bm-9PE">
             <objects>
-                <viewController id="6yL-BL-ePR" sceneMemberID="viewController">
+                <viewController id="6yL-BL-ePR" customClass="PartyAfiliationViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qZq-Up-6df"/>
                         <viewControllerLayoutGuide type="bottom" id="OjC-4E-Wu0"/>
@@ -1641,8 +1728,25 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vPD-ow-inW">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="LeO-sL-EEp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem id="Dtu-7d-0Ix">
+                                            <nil key="title"/>
+                                            <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="omK-zz-ZWt">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Go Back"/>
+                                                <connections>
+                                                    <segue destination="zbl-3t-Off" kind="unwind" unwindAction="unwindToMenu:" id="4sA-E7-CgJ"/>
+                                                </connections>
+                                            </button>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="37R-Fv-LIm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell1" id="37R-Fv-LIm">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37R-Fv-LIm" id="4cv-pa-5Ad">
@@ -1672,15 +1776,18 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLi-TQ-N4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zbl-3t-Off" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1182" y="2205"/>
+            <point key="canvasLocation" x="-1176" y="2399.25"/>
         </scene>
-        <!--View Controller-->
+        <!--Political Ideology View Controller-->
         <scene sceneID="pol-yr-aUi">
             <objects>
-                <viewController id="fok-kf-i2r" sceneMemberID="viewController">
+                <viewController id="fok-kf-i2r" customClass="PoliticalIdeologyViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lSq-sY-seC"/>
                         <viewControllerLayoutGuide type="bottom" id="xcU-0g-K5E"/>
@@ -1692,8 +1799,25 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ufq-FI-N9y">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="cg6-dv-UCy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem id="uC2-7v-CKp">
+                                            <nil key="title"/>
+                                            <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rlH-Ej-jjo">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Go Back"/>
+                                                <connections>
+                                                    <segue destination="kLc-xO-3qy" kind="unwind" unwindAction="unwindToMenu:" id="gqt-xM-KOw"/>
+                                                </connections>
+                                            </button>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VhR-e4-9Uq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell1" id="VhR-e4-9Uq">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VhR-e4-9Uq" id="N21-g8-0fc">
@@ -1723,10 +1847,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JUo-eH-bpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="kLc-xO-3qy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-498" y="2205"/>
+            <point key="canvasLocation" x="-526.5" y="2399.25"/>
         </scene>
         <!--Info Table View Controller-->
         <scene sceneID="xKE-xR-kRU">
@@ -2001,6 +2127,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLk-Db-Uk5">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Ethnicity"/>
+                                                    <connections>
+                                                        <segue destination="KUu-Ts-aE4" kind="presentation" id="QUv-gV-8sK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2043,6 +2172,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaJ-26-0yD">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Religion"/>
+                                                    <connections>
+                                                        <segue destination="wxh-3o-4sW" kind="presentation" id="gS8-E8-RmF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2085,6 +2217,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1d-Y7-tgA">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Political Ideology"/>
+                                                    <connections>
+                                                        <segue destination="fok-kf-i2r" kind="presentation" id="UcN-cb-eS7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2127,6 +2262,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvz-j3-qOY">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Party Afiliation"/>
+                                                    <connections>
+                                                        <segue destination="6yL-BL-ePR" kind="presentation" id="OE8-5Z-Vqc"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2169,6 +2307,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74D-fk-by7">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Lifestyle"/>
+                                                    <connections>
+                                                        <segue destination="dfO-Hu-jMB" kind="presentation" id="kD1-Lk-wyn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

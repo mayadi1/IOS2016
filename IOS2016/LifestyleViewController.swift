@@ -1,5 +1,5 @@
 //
-//  EthnicityViewController.swift
+//  LifestyleViewController.swift
 //  IOS2016
 //
 //  Created by Mohamed Ayadi on 7/23/16.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class EthnicityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var data = ["Asian", "Black / African Descent", "Jewish", "Latino/Hispanic", "Middle Eastern", "Pacific Islander", "South Asian", "Native American / Aboriginal", "White / Caucasian", "Other"]
+class LifestyleViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+    var data = ["Drugs", "Marijuana", "Alcohol", "Smoking", "Caffeine", "Pets"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.data.count
@@ -30,7 +31,4 @@ class EthnicityViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
-    
-
-   
 }

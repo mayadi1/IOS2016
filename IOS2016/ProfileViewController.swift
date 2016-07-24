@@ -98,11 +98,8 @@ class ProfileViewController: UITableViewController {
         try! FIRAuth.auth()!.signOut()
         print("signed out")
         
-        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let ViewController: UIViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("LoginView")
-        
-        self.presentViewController(ViewController, animated: true, completion: nil)
-        
+        self.view.window!.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+
 
         
     }

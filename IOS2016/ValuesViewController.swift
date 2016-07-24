@@ -218,7 +218,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                             
                             let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                             
-                            let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("TabBarView")
+                            let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
                             
                             self.presentViewController(MapViewController, animated: false, completion: nil)
                             

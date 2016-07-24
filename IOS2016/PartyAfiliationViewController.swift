@@ -1,5 +1,5 @@
 //
-//  EthnicityViewController.swift
+//  PartyAfiliationViewController.swift
 //  IOS2016
 //
 //  Created by Mohamed Ayadi on 7/23/16.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class EthnicityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var data = ["Asian", "Black / African Descent", "Jewish", "Latino/Hispanic", "Middle Eastern", "Pacific Islander", "South Asian", "Native American / Aboriginal", "White / Caucasian", "Other"]
+class PartyAfiliationViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+
+    var data = ["Party Affiliation", "Democrat", "Republican", "Independant", "Libertarian", "Green", "Constitution", "Unaffiliated"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.data.count
@@ -32,5 +33,7 @@ class EthnicityViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-   
-}
+
+
+
+}//End of the PartyA VC

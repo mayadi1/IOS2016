@@ -1,5 +1,5 @@
 //
-//  EthnicityViewController.swift
+//  PoliticalIdeologyViewController.swift
 //  IOS2016
 //
 //  Created by Mohamed Ayadi on 7/23/16.
@@ -8,16 +8,29 @@
 
 import UIKit
 
-class EthnicityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var data = ["Asian", "Black / African Descent", "Jewish", "Latino/Hispanic", "Middle Eastern", "Pacific Islander", "South Asian", "Native American / Aboriginal", "White / Caucasian", "Other"]
+class PoliticalIdeologyViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+
+    
+    
+    var data = ["Political Ideology", "Absolutist", "Anarchist", "Capitalist", "Communist", "Conservative", "Environmentalist", "Liberal", "Socialist", "Other"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.data.count
+       return self.data.count
         
     }
     
@@ -26,11 +39,9 @@ class EthnicityViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath)
         
         cell.textLabel?.text = self.data[indexPath.row]
-        
+
         
         return cell
     }
     
-
-   
 }

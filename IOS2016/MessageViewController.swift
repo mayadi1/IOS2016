@@ -10,6 +10,7 @@ import UIKit
 
 class MessageViewController: UIViewController {
 
+    @IBOutlet weak var segmentCheck: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
 

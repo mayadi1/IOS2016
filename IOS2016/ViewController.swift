@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseAuth
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate{
     
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
 
         
-        
+        if FIRAuth.auth()?.currentUser != nil{
         let ref = FIRDatabase.database().reference()
         
         let userID = FIRAuth.auth()?.currentUser?.uid
@@ -63,7 +63,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         }
 
        
-
+        }
         
         /// let ref = FIRDatabase.database().reference()
         

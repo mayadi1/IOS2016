@@ -1745,7 +1745,7 @@
                                     <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ypb-96-Zkz">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Go Back"/>
                                         <connections>
                                             <segue destination="xGS-v2-o4E" kind="unwind" unwindAction="unwindToMenu:" id="a5W-aa-qsU"/>
                                         </connections>

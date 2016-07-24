@@ -131,9 +131,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YQM-Uc-i07">
-                                <rect key="frame" x="61" y="407" width="478" height="102"/>
+                                <rect key="frame" x="61" y="425" width="478" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="G3c-BF-DSH"/>
+                                    <constraint firstAttribute="height" constant="84" id="G3c-BF-DSH"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="490958716.06821299">
                                     <!--2016-07-23 09:25:16 +0000-->
@@ -222,7 +222,7 @@
                                     <constraint firstAttribute="width" constant="42" id="API-sK-LW3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-uK-cqf">
@@ -231,7 +231,7 @@
                                     <constraint firstAttribute="width" constant="98" id="Anc-fI-3cU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAB-WQ-D2v">
@@ -255,6 +255,15 @@
                                     <segue destination="XGO-T4-Vxu" kind="show" id="jC2-Uo-LLT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaS-tY-zid">
+                                <rect key="frame" x="61" y="406" width="77" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="rr1-KR-B4s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.51196853939999998" blue="0.60784313729999995" alpha="0.80107758620000002" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -271,11 +280,12 @@
                             <constraint firstItem="NRs-uK-cqf" firstAttribute="leading" secondItem="fDx-eD-Bk4" secondAttribute="leading" id="Mjc-x6-8dt"/>
                             <constraint firstItem="Ih6-If-ceE" firstAttribute="top" secondItem="FLu-tD-pem" secondAttribute="bottom" constant="9" id="NHF-1I-Iov"/>
                             <constraint firstItem="IqD-hP-qhG" firstAttribute="leading" secondItem="e2d-Ke-e6d" secondAttribute="leadingMargin" constant="41" id="Rkn-W5-GBC"/>
+                            <constraint firstItem="BaS-tY-zid" firstAttribute="leading" secondItem="fDx-eD-Bk4" secondAttribute="leading" id="SGN-cw-wmE"/>
                             <constraint firstItem="IqD-hP-qhG" firstAttribute="trailing" secondItem="VGQ-3l-vct" secondAttribute="trailing" id="STw-We-be3"/>
                             <constraint firstItem="VGQ-3l-vct" firstAttribute="leading" secondItem="FLu-tD-pem" secondAttribute="leading" id="TES-pw-CMw"/>
                             <constraint firstItem="VGQ-3l-vct" firstAttribute="trailing" secondItem="FLu-tD-pem" secondAttribute="trailing" id="U2E-JL-OQI"/>
                             <constraint firstItem="xUZ-Mb-Bvp" firstAttribute="top" secondItem="FLu-tD-pem" secondAttribute="bottom" constant="28" id="Vc5-5i-Ze0"/>
-                            <constraint firstItem="YQM-Uc-i07" firstAttribute="top" secondItem="fDx-eD-Bk4" secondAttribute="bottom" constant="7" id="Yva-dG-TqV"/>
+                            <constraint firstItem="YQM-Uc-i07" firstAttribute="top" secondItem="fDx-eD-Bk4" secondAttribute="bottom" constant="25" id="Yva-dG-TqV"/>
                             <constraint firstItem="yAB-WQ-D2v" firstAttribute="leading" secondItem="e2d-Ke-e6d" secondAttribute="leading" id="bqb-zV-eB8"/>
                             <constraint firstItem="Ih6-If-ceE" firstAttribute="leading" secondItem="xUZ-Mb-Bvp" secondAttribute="leading" id="e5u-xP-8xE"/>
                             <constraint firstItem="jf0-zg-7Hv" firstAttribute="top" secondItem="PbM-Xd-VwU" secondAttribute="bottom" constant="8" symbolic="YES" id="eFX-Cx-adv"/>
@@ -285,8 +295,9 @@
                             <constraint firstItem="VGQ-3l-vct" firstAttribute="top" secondItem="IqD-hP-qhG" secondAttribute="bottom" constant="15" id="q5R-JT-H5o"/>
                             <constraint firstItem="FLu-tD-pem" firstAttribute="leading" secondItem="xUZ-Mb-Bvp" secondAttribute="leading" id="sL8-Zj-ARE"/>
                             <constraint firstItem="9wN-cl-1Vs" firstAttribute="leading" secondItem="yAB-WQ-D2v" secondAttribute="leading" id="sfK-bS-HP2"/>
-                            <constraint firstItem="YQM-Uc-i07" firstAttribute="top" secondItem="xUZ-Mb-Bvp" secondAttribute="bottom" constant="62" id="swy-eU-wwF"/>
+                            <constraint firstItem="YQM-Uc-i07" firstAttribute="top" secondItem="xUZ-Mb-Bvp" secondAttribute="bottom" constant="80" id="swy-eU-wwF"/>
                             <constraint firstItem="yAB-WQ-D2v" firstAttribute="top" secondItem="YQM-Uc-i07" secondAttribute="bottom" constant="8" id="t7d-LO-rxJ"/>
+                            <constraint firstItem="BaS-tY-zid" firstAttribute="top" secondItem="fDx-eD-Bk4" secondAttribute="bottom" constant="6" id="tbg-0S-PO0"/>
                             <constraint firstItem="yAB-WQ-D2v" firstAttribute="bottom" secondItem="M3k-qS-PPX" secondAttribute="top" constant="-43" id="td2-43-Hg1"/>
                             <constraint firstItem="FLu-tD-pem" firstAttribute="trailing" secondItem="xUZ-Mb-Bvp" secondAttribute="trailing" id="uvW-GS-war"/>
                         </constraints>

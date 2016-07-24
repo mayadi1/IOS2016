@@ -101,5 +101,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func gobackButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }//End of the class

@@ -31,6 +31,16 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBOutlet weak var mainImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameandage.text = "Darren, 31"
+        self.location.text = "Atlanta"
+        self.political.text = "Conservative"
+        self.party.text = "Baptist"
+        self.labelll.text = "6'1''"
+        
+        self.mainImageView.image = UIImage.init(named: "Darren")
+        
+        
         self.likeImage.hidden = true
 
         self.down.hidden = true
@@ -154,25 +164,25 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
               
                 
                 if self.count == 0{
-                self.nameandage.text = "Alex, 30"
-                self.location.text = "San jose"
-                self.political.text = " "
-                self.party.text = " "
-                self.labelll.text = "6'' 4'"
+                self.nameandage.text = "John, 32"
+                self.location.text = "San Francisco"
+                self.political.text = "Liberal"
+                self.party.text = "Catholic"
+                self.labelll.text = "5''11'"
                 
-                self.mainImageView.image = UIImage.init(named: "url-28")
+                self.mainImageView.image = UIImage.init(named: "John")
                 self.count = self.count + 1
                     return
                 }
                 
                 if self.count == 1{
-                    self.nameandage.text = "Trump, 90"
-                    self.location.text = "Chicago"
-                    self.political.text = " "
-                    self.party.text = " "
-                    self.labelll.text = "7'' 4'"
+                    self.nameandage.text = "Liz, 28"
+                    self.location.text = "New York"
+                    self.political.text = "Libertarian"
+                    self.party.text = "Agnostic"
+                    self.labelll.text = "5'6''"
                     
-                    self.mainImageView.image = UIImage.init(named: "photo")
+                    self.mainImageView.image = UIImage.init(named: "Liz")
                     self.count = self.count + 1
                     return
                 }
@@ -180,16 +190,30 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 
                 if self.count == 2{
-                    self.nameandage.text = "Mohamed, 21"
-                    self.location.text = "San Francisco"
+                    self.nameandage.text = "Rachel, 26"
+                    self.location.text = "Los Angeles"
                     self.political.text = "Liberal"
-                    self.party.text = "Democrat"
-                    self.labelll.text = "5'' 11'"
+                    self.party.text = "Jewish"
+                    self.labelll.text = "5'4''"
                     
-                    self.mainImageView.image = UIImage.init(named: "Screen Shot 2016-07-12 at 9.03.51 AM")
+                    self.mainImageView.image = UIImage.init(named: "Rachel")
+                    self.count = self.count + 1
+                    return
+                }
+
+                
+                if self.count == 3{
+                    self.nameandage.text = "Neeti, 24"
+                    self.location.text = "Chicago"
+                    self.political.text = "Environmentalist"
+                    self.party.text = "Hindu"
+                    self.labelll.text = "5'2'''"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Neeti")
                     self.count = 0
                     return
                 }
+                
                 
 
             case UISwipeGestureRecognizerDirection.Left:
@@ -199,26 +223,27 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
 
                 
+                
                 if self.count == 0{
-                    self.nameandage.text = "Alex, 30"
-                    self.location.text = "San jose"
-                    self.political.text = " "
-                    self.party.text = " "
-                    self.labelll.text = "6'' 4'"
+                    self.nameandage.text = "John, 32"
+                    self.location.text = "San Francisco"
+                    self.political.text = "Liberal"
+                    self.party.text = "Catholic"
+                    self.labelll.text = "5''11'"
                     
-                    self.mainImageView.image = UIImage.init(named: "url-28")
+                    self.mainImageView.image = UIImage.init(named: "John")
                     self.count = self.count + 1
                     return
                 }
                 
                 if self.count == 1{
-                    self.nameandage.text = "Trump, 90"
-                    self.location.text = "Chicago"
-                    self.political.text = " "
-                    self.party.text = " "
-                    self.labelll.text = "7'' 4'"
+                    self.nameandage.text = "Liz, 28"
+                    self.location.text = "New York"
+                    self.political.text = "Libertarian"
+                    self.party.text = "Agnostic"
+                    self.labelll.text = "5'6''"
                     
-                    self.mainImageView.image = UIImage.init(named: "photo")
+                    self.mainImageView.image = UIImage.init(named: "Liz")
                     self.count = self.count + 1
                     return
                 }
@@ -226,13 +251,26 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 
                 if self.count == 2{
-                    self.nameandage.text = "Mohamed, 21"
-                    self.location.text = "San Francisco"
+                    self.nameandage.text = "Rachel, 26"
+                    self.location.text = "Los Angeles"
                     self.political.text = "Liberal"
-                    self.party.text = "Democrat"
-                    self.labelll.text = "5'' 11'"
+                    self.party.text = "Jewish"
+                    self.labelll.text = "5'4''"
                     
-                    self.mainImageView.image = UIImage.init(named: "Screen Shot 2016-07-12 at 9.03.51 AM")
+                    self.mainImageView.image = UIImage.init(named: "Rachel")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                
+                if self.count == 3{
+                    self.nameandage.text = "Neeti, 24"
+                    self.location.text = "Chicago"
+                    self.political.text = "Environmentalist"
+                    self.party.text = "Hindu"
+                    self.labelll.text = "5'2'''"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Neeti")
                     self.count = 0
                     return
                 }

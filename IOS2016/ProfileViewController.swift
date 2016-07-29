@@ -42,6 +42,26 @@ class ProfileViewController: UITableViewController {
                 //remove cache after fetching image data
             }
         }
+        
+        
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            
+            
+            let value = snapshot.value
+            
+            let tempProfileInfoArray = value as! NSDictionary
+            
+            self.partyAffiliation.text = tempProfileInfoArray["value1"] as? String
+            self.PoliticalIdeology.text = tempProfileInfoArray["value2"] as? String
+            self.religion.text = tempProfileInfoArray["value3"] as? String
+            
+            
+        })
+        
     }
     
     override func viewDidLoad() {

@@ -964,10 +964,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="ece-hf-lst">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g78-zd-P9G">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Go Back"/>
+                            <connections>
+                                <segue destination="4X2-8n-ML0" kind="unwind" unwindAction="unwindToMenu:" id="84p-Ic-ES1"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9f-dp-WgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4X2-8n-ML0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="832.5" y="2399.25"/>
+            <point key="canvasLocation" x="1750.5" y="2399.25"/>
         </scene>
         <!--Lifestyle View Controller-->
         <scene sceneID="Tmn-Rc-Ub2">
@@ -994,6 +1006,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="398" height="800"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="dfO-Hu-jMB" id="I17-XE-s0b"/>
                                     <outlet property="delegate" destination="dfO-Hu-jMB" id="EJR-rj-GEW"/>
@@ -1030,11 +1045,22 @@
                             </mask>
                         </variation>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="eZW-Do-bCH">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OiK-bc-OeW">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Go Back"/>
+                            <connections>
+                                <segue destination="s3p-JL-6pu" kind="unwind" unwindAction="unwindToMenu:" id="Hev-oY-fe1"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acG-I9-NBL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s3p-JL-6pu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="2399.25"/>
+            <point key="canvasLocation" x="3360" y="2399.25"/>
         </scene>
         <!--Religion View Controller-->
         <scene sceneID="KhT-5h-vFB">
@@ -2221,7 +2247,7 @@
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Ethnicity"/>
                                                     <connections>
-                                                        <segue destination="KUu-Ts-aE4" kind="presentation" id="QUv-gV-8sK"/>
+                                                        <segue destination="eUg-hI-4Vo" kind="presentation" id="QUv-gV-8sK"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2401,7 +2427,7 @@
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Lifestyle"/>
                                                     <connections>
-                                                        <segue destination="dfO-Hu-jMB" kind="presentation" id="kD1-Lk-wyn"/>
+                                                        <segue destination="tNT-LO-UQ3" kind="presentation" id="kD1-Lk-wyn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2477,6 +2503,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksS-Dp-3Fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084.5" y="49.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d7Q-io-1nV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eUg-hI-4Vo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRT-MP-69D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KUu-Ts-aE4" kind="relationship" relationship="rootViewController" id="EnX-qX-hNT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-o6-lI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.5" y="2399.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WBv-o0-Eui">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tNT-LO-UQ3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ard-wf-Djm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dfO-Hu-jMB" kind="relationship" relationship="rootViewController" id="cHy-AO-7MZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmv-f4-4JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="2399.25"/>
         </scene>
     </scenes>
     <resources>

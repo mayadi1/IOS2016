@@ -51,6 +51,7 @@ class ProfileViewController: UITableViewController {
 
         let user = FIRAuth.auth()?.currentUser
 
+        self.nameAge.text = user?.displayName
         
       
         

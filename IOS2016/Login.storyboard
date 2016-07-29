@@ -67,6 +67,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="53"/>
                                     </constraint>
                                 </constraints>
+                                <state key="normal" title="Facebook Login Button"/>
                                 <state key="highlighted" image="Screen Shot 2016-07-24 at 11.25.54 AM"/>
                                 <connections>
                                     <outlet property="delegate" destination="aeD-SE-tP5" id="BQH-kJ-qVx"/>
@@ -788,7 +789,7 @@
                                     <constraint firstAttribute="width" constant="600" id="ACl-I7-ldi"/>
                                     <constraint firstAttribute="height" constant="40" id="wiQ-vc-zCQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Go back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -818,7 +819,7 @@
                                     <constraint firstAttribute="height" constant="40" id="PGj-1g-Shs"/>
                                     <constraint firstAttribute="width" constant="600" id="Y2D-Zw-2MH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
@@ -1112,6 +1113,6 @@
         <image name="Screen Shot 2016-07-24 at 11.25.54 AM" width="307" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6rJ-cE-a6v"/>
+        <segue reference="OW7-ey-svK"/>
     </inferredMetricsTieBreakers>
 </document>

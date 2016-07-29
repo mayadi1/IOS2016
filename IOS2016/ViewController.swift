@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nameandage: UITextField!
     
     @IBOutlet weak var location: UITextField!
@@ -22,8 +23,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     @IBOutlet weak var labelll: UILabel!
     
+    let usersRef = FIRDatabase.database().reference().child("users")
+    
     
     var count = 0
+    
+    var usersInfo = [UsersInfo]()
+    
     
     @IBOutlet weak var down: UIImageView!
     @IBOutlet weak var likeImage: UIImageView!
@@ -31,20 +37,17 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBOutlet weak var mainImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicator.startAnimating()
+        self.retrieveUsers()
         
-        self.nameandage.text = "Darren, 31"
-        self.location.text = "Atlanta"
-        self.political.text = "Conservative"
-        self.party.text = "Baptist"
-        self.labelll.text = "6'1''"
         
-        self.mainImageView.image = UIImage.init(named: "Darren")
+
         
         
         self.likeImage.hidden = true
-
+        
         self.down.hidden = true
-
+        
         
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
@@ -56,46 +59,46 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         self.view.addGestureRecognizer(swipeUp)
         
         
-
+        
         
         if FIRAuth.auth()?.currentUser != nil{
-        let ref = FIRDatabase.database().reference()
-        
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("users").child(userID!).child("userProfilePic").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            // Get user value
+            let ref = FIRDatabase.database().reference()
             
-            let filePath = snapshot.value as! String
-            
-            let url = NSURL(string: filePath)
-            if let data = NSData(contentsOfURL: url!){
+            let userID = FIRAuth.auth()?.currentUser?.uid
+            ref.child("users").child(userID!).child("userProfilePic").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                // Get user value
                 
+                let filePath = snapshot.value as! String
                 
-                 UIImage.init(data: data)
-            
-                var image = UIImage.init(data: data)
-
-                let defaults = NSUserDefaults.standardUserDefaults()
-                var imgData = UIImageJPEGRepresentation(image!, 1)
-                defaults.setObject(imgData, forKey: "image")
-
-            
-            
+                let url = NSURL(string: filePath)
+                if let data = NSData(contentsOfURL: url!){
+                    
+                    
+                    UIImage.init(data: data)
+                    
+                    var image = UIImage.init(data: data)
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    var imgData = UIImageJPEGRepresentation(image!, 1)
+                    defaults.setObject(imgData, forKey: "image")
+                    
+                    
+                    
+                }
+                
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
             }
             
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-
-       
+            
         }
         
         /// let ref = FIRDatabase.database().reference()
         
         
         self.hideKeyboardWhenTappedAround()
-
+        
         self.mainImageView.layer.cornerRadius = 20;
         self.mainImageView.clipsToBounds = true;
         
@@ -137,7 +140,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     @IBAction func test(sender: AnyObject) {
         
-         performSegueWithIdentifier("showInfo", sender: nil)
+        performSegueWithIdentifier("showInfo", sender: nil)
         
     }
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle{
@@ -155,73 +158,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
-       
+                
                 
                 self.likeImage.hidden = false
-
+                
                 var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 print("Swiped right")
-              
-                
-                if self.count == 0{
-                self.nameandage.text = "John, 32"
-                self.location.text = "San Francisco"
-                self.political.text = "Liberal"
-                self.party.text = "Catholic"
-                self.labelll.text = "5''11'"
-                
-                self.mainImageView.image = UIImage.init(named: "John")
-                self.count = self.count + 1
-                    return
-                }
-                
-                if self.count == 1{
-                    self.nameandage.text = "Liz, 28"
-                    self.location.text = "New York"
-                    self.political.text = "Libertarian"
-                    self.party.text = "Agnostic"
-                    self.labelll.text = "5'6''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Liz")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                
-                
-                if self.count == 2{
-                    self.nameandage.text = "Rachel, 26"
-                    self.location.text = "Los Angeles"
-                    self.political.text = "Liberal"
-                    self.party.text = "Jewish"
-                    self.labelll.text = "5'4''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Rachel")
-                    self.count = self.count + 1
-                    return
-                }
-
-                
-                if self.count == 3{
-                    self.nameandage.text = "Neeti, 24"
-                    self.location.text = "Chicago"
-                    self.political.text = "Environmentalist"
-                    self.party.text = "Hindu"
-                    self.labelll.text = "5'2'''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Neeti")
-                    self.count = 0
-                    return
-                }
-                
-                
-
-            case UISwipeGestureRecognizerDirection.Left:
-                print("Swiped left")
-                self.down.hidden = false
-                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
-                
-
                 
                 
                 if self.count == 0{
@@ -274,7 +216,68 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                     self.count = 0
                     return
                 }
-
+                
+                
+                
+            case UISwipeGestureRecognizerDirection.Left:
+                print("Swiped left")
+                self.down.hidden = false
+                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+                
+                
+                
+                
+                if self.count == 0{
+                    self.nameandage.text = "John, 32"
+                    self.location.text = "San Francisco"
+                    self.political.text = "Liberal"
+                    self.party.text = "Catholic"
+                    self.labelll.text = "5''11'"
+                    
+                    self.mainImageView.image = UIImage.init(named: "John")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                if self.count == 1{
+                    self.nameandage.text = "Liz, 28"
+                    self.location.text = "New York"
+                    self.political.text = "Libertarian"
+                    self.party.text = "Agnostic"
+                    self.labelll.text = "5'6''"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Liz")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                
+                
+                if self.count == 2{
+                    self.nameandage.text = "Rachel, 26"
+                    self.location.text = "Los Angeles"
+                    self.political.text = "Liberal"
+                    self.party.text = "Jewish"
+                    self.labelll.text = "5'4''"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Rachel")
+                    self.count = self.count + 1
+                    return
+                }
+                
+                
+                if self.count == 3{
+                    self.nameandage.text = "Neeti, 24"
+                    self.location.text = "Chicago"
+                    self.political.text = "Environmentalist"
+                    self.party.text = "Hindu"
+                    self.labelll.text = "5'2'''"
+                    
+                    self.mainImageView.image = UIImage.init(named: "Neeti")
+                    self.count = 0
+                    return
+                }
+                
             default:
                 break
             }
@@ -289,6 +292,63 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         self.down.hidden = true
         
     }
+    
+    
+    
+    //Retrive users
+    
+    func retrieveUsers(){
+        
+        
+        
+        self.usersRef.observeEventType(.Value, withBlock:  { (snapshot) in
+            
+            let value = snapshot.value
+            
+            let tempProfileInfoArray = value as! NSDictionary
+            
+            
+            let usersValues = tempProfileInfoArray.allValues
+            
+            for each in usersValues{
+                
+                
+                self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String))
+                
+            }
+            
+            
+            self.activityIndicator.stopAnimating()
+            
+            let firstUser = self.usersInfo.first
+            
+            
+            self.nameandage.text = firstUser?.name
+            self.location.text = "Atlanta"
+            self.political.text = "Conservative"
+            self.party.text = "Baptist"
+            self.labelll.text = "6'1''"
+            
+            let filePath = firstUser?.photo
+            
+            let url = NSURL(string: filePath!)
+            
+            if let data = NSData(contentsOfURL: url!){
+                
+                
+                self.mainImageView.image = UIImage.init(data: data)
+                
+            }
+
+        })
+        
+        
+    }
+    
+    
+    
+    
+    
     
 }//End of the VC class
 

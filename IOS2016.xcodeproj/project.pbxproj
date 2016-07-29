@@ -27,6 +27,7 @@
 		18432C5D1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */; };
 		18A59AE11D43AE5000CE48B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A59AE01D43AE5000CE48B9 /* GoogleService-Info.plist */; };
 		18C8C59B1D4B4E8D00249F82 /* FBValuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C59A1D4B4E8D00249F82 /* FBValuesViewController.swift */; };
+		18C8C59D1D4B80EB00249F82 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C59C1D4B80EB00249F82 /* UsersInfo.swift */; };
 		18DF57351D455B42003577A7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF57341D455B42003577A7 /* MessageViewController.swift */; };
 		3C23EFB6B046B56D3E48000B /* Pods_IOS2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F468C685D45C6B315B036C /* Pods_IOS2016.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCellIdViewController.swift; sourceTree = "<group>"; };
 		18A59AE01D43AE5000CE48B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18C8C59A1D4B4E8D00249F82 /* FBValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBValuesViewController.swift; sourceTree = "<group>"; };
+		18C8C59C1D4B80EB00249F82 /* UsersInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 		18DF57341D455B42003577A7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		8986604555222C6B75B1BDA9 /* Pods-IOS2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOS2016/Pods-IOS2016.release.xcconfig"; sourceTree = "<group>"; };
 		B0F468C685D45C6B315B036C /* Pods_IOS2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOS2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 			children = (
 				18432C461D43396F00E67B27 /* AppDelegate.swift */,
 				18432C481D43396F00E67B27 /* ViewController.swift */,
+				18C8C59C1D4B80EB00249F82 /* UsersInfo.swift */,
 				18432C4A1D43396F00E67B27 /* Main.storyboard */,
 				180494491D449EAF00F8718D /* LifestyleViewController.swift */,
 				180494471D449E7E00F8718D /* PartyAfiliationViewController.swift */,
@@ -270,6 +273,7 @@
 				1804944A1D449EAF00F8718D /* LifestyleViewController.swift in Sources */,
 				1809874A1D438BB6006C7883 /* ProfileViewController.swift in Sources */,
 				180494421D445FC600F8718D /* EthnicityViewController.swift in Sources */,
+				18C8C59D1D4B80EB00249F82 /* UsersInfo.swift in Sources */,
 				180494401D445F1700F8718D /* ReligionViewController.swift in Sources */,
 				1804944C1D45248E00F8718D /* MainLoginViewController.swift in Sources */,
 				180494461D449E5400F8718D /* PoliticalIdeologyViewController.swift in Sources */,

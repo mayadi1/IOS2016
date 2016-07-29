@@ -106,14 +106,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         self.infoView.clipsToBounds = true;
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    
-    
-    //Hide Status bar
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
+
     
     @IBAction func ViewButtonTapped(sender: AnyObject) {
         

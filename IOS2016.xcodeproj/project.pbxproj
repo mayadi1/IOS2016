@@ -46,7 +46,7 @@
 		180987411D436F08006C7883 /* AccountCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCViewController.swift; sourceTree = "<group>"; };
 		180987431D437147006C7883 /* ValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesViewController.swift; sourceTree = "<group>"; };
 		180987491D438BB6006C7883 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		18432C431D43396F00E67B27 /* IOS2016.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS2016.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18432C431D43396F00E67B27 /* Runningmate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runningmate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18432C461D43396F00E67B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18432C481D43396F00E67B27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		18432C4B1D43396F00E67B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		18432C441D43396F00E67B27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18432C431D43396F00E67B27 /* IOS2016.app */,
+				18432C431D43396F00E67B27 /* Runningmate.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,9 +142,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18432C421D43396F00E67B27 /* IOS2016 */ = {
+		18432C421D43396F00E67B27 /* Runningmate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18432C551D43396F00E67B27 /* Build configuration list for PBXNativeTarget "IOS2016" */;
+			buildConfigurationList = 18432C551D43396F00E67B27 /* Build configuration list for PBXNativeTarget "Runningmate" */;
 			buildPhases = (
 				F4FEBE6BC759EDDC8CFCC1E8 /* [CP] Check Pods Manifest.lock */,
 				18432C3F1D43396F00E67B27 /* Sources */,
@@ -157,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = IOS2016;
+			name = Runningmate;
 			productName = IOS2016;
-			productReference = 18432C431D43396F00E67B27 /* IOS2016.app */;
+			productReference = 18432C431D43396F00E67B27 /* Runningmate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +191,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18432C421D43396F00E67B27 /* IOS2016 */,
+				18432C421D43396F00E67B27 /* Runningmate */,
 			);
 		};
 /* End PBXProject section */
@@ -433,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18432C551D43396F00E67B27 /* Build configuration list for PBXNativeTarget "IOS2016" */ = {
+		18432C551D43396F00E67B27 /* Build configuration list for PBXNativeTarget "Runningmate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18432C561D43396F00E67B27 /* Debug */,

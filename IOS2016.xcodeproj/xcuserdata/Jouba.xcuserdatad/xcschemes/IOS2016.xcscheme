@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18432C421D43396F00E67B27"
-               BuildableName = "IOS2016.app"
-               BlueprintName = "IOS2016"
+               BuildableName = "Runningmate.app"
+               BlueprintName = "Runningmate"
                ReferencedContainer = "container:IOS2016.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18432C421D43396F00E67B27"
-            BuildableName = "IOS2016.app"
-            BlueprintName = "IOS2016"
+            BuildableName = "Runningmate.app"
+            BlueprintName = "Runningmate"
             ReferencedContainer = "container:IOS2016.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18432C421D43396F00E67B27"
-            BuildableName = "IOS2016.app"
-            BlueprintName = "IOS2016"
+            BuildableName = "Runningmate.app"
+            BlueprintName = "Runningmate"
             ReferencedContainer = "container:IOS2016.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18432C421D43396F00E67B27"
-            BuildableName = "IOS2016.app"
-            BlueprintName = "IOS2016"
+            BuildableName = "Runningmate.app"
+            BlueprintName = "Runningmate"
             ReferencedContainer = "container:IOS2016.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

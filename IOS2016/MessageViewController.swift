@@ -19,7 +19,6 @@ class MessageViewController: JSQMessagesViewController {
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     let user = FIRAuth.auth()?.currentUser
 //    let rootRef = FIRDatabase.database().reference()
-    var messageRef = FIRDatabase.database().reference().child("users").setValue("messages")
     
     override func viewDidLoad() {
         super.viewDidLoad()

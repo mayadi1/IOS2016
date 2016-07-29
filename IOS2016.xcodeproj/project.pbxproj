@@ -26,6 +26,7 @@
 		18432C5B1D43474100E67B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18432C5A1D43474100E67B27 /* Assets.xcassets */; };
 		18432C5D1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */; };
 		18A59AE11D43AE5000CE48B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A59AE01D43AE5000CE48B9 /* GoogleService-Info.plist */; };
+		18C8C59B1D4B4E8D00249F82 /* FBValuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8C59A1D4B4E8D00249F82 /* FBValuesViewController.swift */; };
 		18DF57351D455B42003577A7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF57341D455B42003577A7 /* MessageViewController.swift */; };
 		3C23EFB6B046B56D3E48000B /* Pods_IOS2016.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F468C685D45C6B315B036C /* Pods_IOS2016.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		18432C5A1D43474100E67B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18432C5C1D435B6700E67B27 /* ProfileInfoCellIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoCellIdViewController.swift; sourceTree = "<group>"; };
 		18A59AE01D43AE5000CE48B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18C8C59A1D4B4E8D00249F82 /* FBValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBValuesViewController.swift; sourceTree = "<group>"; };
 		18DF57341D455B42003577A7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		8986604555222C6B75B1BDA9 /* Pods-IOS2016.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS2016.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOS2016/Pods-IOS2016.release.xcconfig"; sourceTree = "<group>"; };
 		B0F468C685D45C6B315B036C /* Pods_IOS2016.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOS2016.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				180494411D445FC600F8718D /* EthnicityViewController.swift */,
 				1804943F1D445F1700F8718D /* ReligionViewController.swift */,
 				1809873D1D436D6C006C7883 /* Login.storyboard */,
+				18C8C59A1D4B4E8D00249F82 /* FBValuesViewController.swift */,
 				1804944B1D45248E00F8718D /* MainLoginViewController.swift */,
 				1809873F1D436DA1006C7883 /* LoginViewController.swift */,
 				180987431D437147006C7883 /* ValuesViewController.swift */,
@@ -272,6 +275,7 @@
 				180494461D449E5400F8718D /* PoliticalIdeologyViewController.swift in Sources */,
 				180494441D44783800F8718D /* InfoTableViewController.swift in Sources */,
 				18432C491D43396F00E67B27 /* ViewController.swift in Sources */,
+				18C8C59B1D4B4E8D00249F82 /* FBValuesViewController.swift in Sources */,
 				18432C471D43396F00E67B27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

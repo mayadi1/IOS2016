@@ -28,7 +28,7 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         
         
         
-             //        self.view!.addSubview(loginButton)
+        //        self.view!.addSubview(loginButton)
         // Do any additional setup after loading the view.
     }
     
@@ -62,17 +62,42 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 print("user logged into firebase")
                 
                 // When user signed in with Facebook, send to address view controller.
-                
-                
-                let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                // Uncomment this when we get feed done and add HomeView as the storyboard id.
-                
-                let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
-                
-                self.presentViewController(MapViewController, animated: false, completion: nil)
+                let rootRef = FIRDatabase.database().reference()
                 
                 
                 
+                let condition = self.usersRef.child("\(user!.uid)")
+                
+                condition.observeEventType(.Value, withBlock:  { (snapshot) in
+                    
+                    
+                    if snapshot.exists() {
+                        
+                        
+                        
+                        let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        // Uncomment this when we get feed done and add HomeView as the storyboard id.
+                        
+                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+                        
+                        self.presentViewController(MapViewController, animated: false, completion: nil)
+                        
+                        
+                        
+                    } else {
+                        
+                        
+                        let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                        // Uncomment this when we get feed done and add HomeView as the storyboard id.
+                        
+                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("FbValuesAdd")
+                        
+                        self.presentViewController(MapViewController, animated: false, completion: nil)
+                        
+                    }
+                    
+                    
+                })
                 
                 
                 
@@ -94,5 +119,6 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         button.layer.borderColor = UIColor.clearColor().CGColor
         
     }
+    
     
 }

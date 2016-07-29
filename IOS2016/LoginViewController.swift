@@ -6,52 +6,74 @@
 //  Copyright © 2016 IOS2016. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 import FirebaseStorage
-import FBSDKCoreKit
-import SideMenu
-import FirebaseDatabase
-import FBSDKLoginKit
+import FirebaseAuth
+
 
 class LoginViewController: UIViewController {
     
     
     
-    override func viewWillAppear(animated: Bool) {
-        self.activityIndicator.hidden = true
-        
-    }
-
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var signUP: UIButton!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var userNameField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         
         
-        self.activityIndicator.hidden = true
-        
-     
-   
-        
-        
-        self.hideKeyboardWhenTappedAround()
-        
-        // Do any additional setup after loading the view.
     }
     
     
-    //Hide Status Bar
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
-    
+    @IBAction func LogIn(sender: AnyObject) {
+        
+        FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                
+                
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                    
+                }
+                alertController.addAction(OKAction)
+                
+                self.presentViewController(alertController, animated: true, completion:nil)
+                
+                
+                
+                return
+            }else{
+              
+                
+                let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                // Uncomment this when we get feed done and add HomeView as the storyboard id.
+                
+                let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+                
+                self.presentViewController(MapViewController, animated: false, completion: nil)
 
+              
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 }//End of the LoginVC CLass
 
 

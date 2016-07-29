@@ -166,57 +166,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 print("Swiped right")
                 
                 
-                if self.count == 0{
-                    self.nameandage.text = "John, 32"
-                    self.location.text = "San Francisco"
-                    self.political.text = "Liberal"
-                    self.party.text = "Catholic"
-                    self.labelll.text = "5''11'"
-                    
-                    self.mainImageView.image = UIImage.init(named: "John")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                if self.count == 1{
-                    self.nameandage.text = "Liz, 28"
-                    self.location.text = "New York"
-                    self.political.text = "Libertarian"
-                    self.party.text = "Agnostic"
-                    self.labelll.text = "5'6''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Liz")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                
-                
-                if self.count == 2{
-                    self.nameandage.text = "Rachel, 26"
-                    self.location.text = "Los Angeles"
-                    self.political.text = "Liberal"
-                    self.party.text = "Jewish"
-                    self.labelll.text = "5'4''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Rachel")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                
-                if self.count == 3{
-                    self.nameandage.text = "Neeti, 24"
-                    self.location.text = "Chicago"
-                    self.political.text = "Environmentalist"
-                    self.party.text = "Hindu"
-                    self.labelll.text = "5'2'''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Neeti")
-                    self.count = 0
-                    return
-                }
-                
+                self.changeUser()
+
                 
                 
             case UISwipeGestureRecognizerDirection.Left:
@@ -224,60 +175,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 self.down.hidden = false
                 var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 
-                
-                
-                
-                if self.count == 0{
-                    self.nameandage.text = "John, 32"
-                    self.location.text = "San Francisco"
-                    self.political.text = "Liberal"
-                    self.party.text = "Catholic"
-                    self.labelll.text = "5''11'"
-                    
-                    self.mainImageView.image = UIImage.init(named: "John")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                if self.count == 1{
-                    self.nameandage.text = "Liz, 28"
-                    self.location.text = "New York"
-                    self.political.text = "Libertarian"
-                    self.party.text = "Agnostic"
-                    self.labelll.text = "5'6''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Liz")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                
-                
-                if self.count == 2{
-                    self.nameandage.text = "Rachel, 26"
-                    self.location.text = "Los Angeles"
-                    self.political.text = "Liberal"
-                    self.party.text = "Jewish"
-                    self.labelll.text = "5'4''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Rachel")
-                    self.count = self.count + 1
-                    return
-                }
-                
-                
-                if self.count == 3{
-                    self.nameandage.text = "Neeti, 24"
-                    self.location.text = "Chicago"
-                    self.political.text = "Environmentalist"
-                    self.party.text = "Hindu"
-                    self.labelll.text = "5'2'''"
-                    
-                    self.mainImageView.image = UIImage.init(named: "Neeti")
-                    self.count = 0
-                    return
-                }
-                
+              self.changeUser()
+              
             default:
                 break
             }
@@ -346,7 +245,57 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     }
     
     
-    
+
+    func changeUser(){
+        
+        
+        
+        
+        self.count = self.count + 1
+        
+        
+        if self.count >= self.usersInfo.count{
+            
+            
+            let alertController = UIAlertController(title: nil, message: "Came back later for new users", preferredStyle: .Alert)
+            
+            
+            let OKAction = UIAlertAction(title: "Okay", style: .Default) { (action:UIAlertAction!) in
+                
+                self.likeImage.removeFromSuperview()
+                self.down.removeFromSuperview()
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion:nil)
+            
+            
+            return
+            
+        }
+        
+        
+        
+        let tempUser = self.usersInfo[self.count]
+        
+        
+        self.nameandage.text = tempUser.name
+        self.location.text = "Atlanta"
+        self.political.text = "Conservative"
+        self.party.text = "Baptist"
+        self.labelll.text = "6'1''"
+        
+        let filePath = tempUser.photo
+        
+        let url = NSURL(string: filePath!)
+        
+        if let data = NSData(contentsOfURL: url!){
+            
+            
+            self.mainImageView.image = UIImage.init(data: data)
+            
+        }
+    }
     
     
     

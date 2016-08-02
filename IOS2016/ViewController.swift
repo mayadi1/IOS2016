@@ -212,7 +212,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             for each in usersValues{
                 
                 
-                self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String))
+                self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String, tempUID: each["useruid"] as! String))
+                
+        
                 
             }
             
@@ -235,7 +237,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             if let data = NSData(contentsOfURL: url!){
                 
                 
-                self.mainImageView.image = UIImage.init(data: data)
+                dispatch_async(dispatch_get_main_queue(), { 
+                     self.mainImageView.image = UIImage.init(data: data)
+                })
+               
                 
             }
 

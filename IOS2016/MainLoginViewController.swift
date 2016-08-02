@@ -20,6 +20,8 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         self.loginButton.center = self.view.center
         self.loginButton.clipsToBounds = true
         self.loginButton.delegate = self
@@ -48,6 +50,7 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             
         } else {  // User hits OK to grant rights to use Facebook Login.
             print("user logged in")
+            
             
             
             // Since Firebase cannot see users logged in even with facebook set up correctly, we have to add this code. Located in guides, auth, facebook, step 4.

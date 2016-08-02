@@ -1168,36 +1168,40 @@
                         <sections>
                             <tableViewSection id="nJU-bc-8xN">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="CellUserID" rowHeight="229" id="K4H-ZO-Wh2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="CellUserID" rowHeight="254" id="K4H-ZO-Wh2">
                                         <rect key="frame" x="0.0" y="35" width="600" height="229"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K4H-ZO-Wh2" id="W2A-VR-90m">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="228"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2016-07-12 at 9.03.51 AM" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-f8-PEz">
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-f8-PEz">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="centerX" secondItem="W2A-VR-90m" secondAttribute="centerX" id="7fv-iQ-snq">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="3.5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LOL-f8-PEz" secondAttribute="bottom" constant="31" id="0HJ-Wb-AnP"/>
+                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="top" secondItem="W2A-VR-90m" secondAttribute="topMargin" constant="6" id="1DT-Wg-7AT"/>
+                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="centerX" secondItem="W2A-VR-90m" secondAttribute="centerX" id="37g-W9-jnD"/>
+                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="top" secondItem="W2A-VR-90m" secondAttribute="topMargin" constant="-4" id="8jS-hE-TdU">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                                 </constraint>
-                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="top" secondItem="W2A-VR-90m" secondAttribute="topMargin" constant="42" id="XGS-Pd-fRy">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="leading" secondItem="W2A-VR-90m" secondAttribute="leadingMargin" constant="82" id="NgI-N9-Cn4">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="92"/>
                                                 </constraint>
-                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="leading" secondItem="W2A-VR-90m" secondAttribute="leadingMargin" constant="72" id="Z46-Fu-zAc"/>
-                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="centerY" secondItem="W2A-VR-90m" secondAttribute="centerY" id="xuc-cL-ydD"/>
+                                                <constraint firstItem="LOL-f8-PEz" firstAttribute="leading" secondItem="W2A-VR-90m" secondAttribute="leadingMargin" constant="92" id="ceq-bF-WpU"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="LOL-f8-PEz"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="7fv-iQ-snq"/>
-                                                    <exclude reference="XGS-Pd-fRy"/>
-                                                    <exclude reference="Z46-Fu-zAc"/>
-                                                    <exclude reference="xuc-cL-ydD"/>
+                                                    <exclude reference="0HJ-Wb-AnP"/>
+                                                    <exclude reference="1DT-Wg-7AT"/>
+                                                    <exclude reference="37g-W9-jnD"/>
+                                                    <exclude reference="8jS-hE-TdU"/>
+                                                    <exclude reference="NgI-N9-Cn4"/>
+                                                    <exclude reference="ceq-bF-WpU"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1205,10 +1209,12 @@
                                                     <include reference="LOL-f8-PEz"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="7fv-iQ-snq"/>
-                                                    <include reference="XGS-Pd-fRy"/>
-                                                    <include reference="Z46-Fu-zAc"/>
-                                                    <include reference="xuc-cL-ydD"/>
+                                                    <include reference="0HJ-Wb-AnP"/>
+                                                    <include reference="1DT-Wg-7AT"/>
+                                                    <include reference="37g-W9-jnD"/>
+                                                    <exclude reference="8jS-hE-TdU"/>
+                                                    <exclude reference="NgI-N9-Cn4"/>
+                                                    <include reference="ceq-bF-WpU"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1755,9 +1761,11 @@
                             <outlet property="delegate" destination="A59-hT-tPb" id="gpi-sS-08m"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="C7Z-JA-PDk"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="PoliticalIdeology" destination="0j2-L8-60u" id="H8Z-IJ-6Ke"/>
                         <outlet property="bio" destination="6pF-O9-orj" id="VB6-SA-EEi"/>
@@ -1772,7 +1780,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ax-4K-PHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-498" y="1482.75"/>
+            <point key="canvasLocation" x="-445.5" y="1471.5"/>
         </scene>
         <!--Party Afiliation View Controller-->
         <scene sceneID="gxJ-bm-9PE">
@@ -2554,7 +2562,6 @@
     <resources>
         <image name="Matches" width="1617" height="1306"/>
         <image name="Profile" width="2100" height="1472"/>
-        <image name="Screen Shot 2016-07-12 at 9.03.51 AM" width="217" height="224"/>
         <image name="no-profile-img" width="240" height="300"/>
         <image name="noun-project-330" width="2292" height="2400"/>
         <image name="thumbs-down-512" width="200" height="200"/>

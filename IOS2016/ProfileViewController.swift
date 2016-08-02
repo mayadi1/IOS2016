@@ -65,10 +65,12 @@ class ProfileViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        
-      
         super.viewDidLoad()
 
+       
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 3
+        self.profileImage.clipsToBounds = true
+        
         let user = FIRAuth.auth()?.currentUser
 
         self.nameAge.text = user?.displayName

@@ -135,7 +135,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         self.activityAnimation.startAnimating()
         var data = NSData()
         
-        let newImage = self.ResizeImage(self.image!,targetSize: CGSizeMake(390, 390.0))
+        let newImage = self.ResizeImage(self.image!,targetSize: CGSizeMake(382, 725))
         data = UIImageJPEGRepresentation(newImage, 0.1)!
         
         

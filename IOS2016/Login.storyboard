@@ -12,7 +12,7 @@
         <!--Delegate-->
         <scene sceneID="pxV-Rt-hAT">
             <objects>
-                <viewController id="aeD-SE-tP5" customClass="MainLoginViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aeD-SE-tP5" customClass="MainLoginViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AVm-AW-kau"/>
                         <viewControllerLayoutGuide type="bottom" id="STk-ZT-AdZ"/>
@@ -171,7 +171,7 @@
         <!--Login View Controller-->
         <scene sceneID="VYD-nU-4eN">
             <objects>
-                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kCH-2U-7SR" customClass="LoginViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kCH-2U-7SR" customClass="LoginViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VbR-eq-U8F"/>
                         <viewControllerLayoutGuide type="bottom" id="sUl-fY-9Y0"/>
@@ -424,7 +424,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="NhR-yr-ryw">
             <objects>
-                <viewController storyboardIdentifier="Create" id="5Eu-8Q-qfe" customClass="SignUpViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Create" id="5Eu-8Q-qfe" customClass="SignUpViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PbM-Xd-VwU"/>
                         <viewControllerLayoutGuide type="bottom" id="M3k-qS-PPX"/>
@@ -723,7 +723,7 @@
         <!--Values View Controller-->
         <scene sceneID="RxA-fP-uNH">
             <objects>
-                <viewController id="XGO-T4-Vxu" customClass="ValuesViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XGO-T4-Vxu" customClass="ValuesViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Czy-P4-r2W"/>
                         <viewControllerLayoutGuide type="bottom" id="clj-cg-3Hw"/>
@@ -1059,7 +1059,7 @@
         <!--Values View Controller-->
         <scene sceneID="XKW-N8-KaN">
             <objects>
-                <viewController storyboardIdentifier="FbValuesAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAD-l9-be3" customClass="FBValuesViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FbValuesAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAD-l9-be3" customClass="FBValuesViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ta6-Tv-gYd"/>
                         <viewControllerLayoutGuide type="bottom" id="ncI-k6-P2k"/>
@@ -1273,28 +1273,28 @@
                                 <exclude reference="SuS-wO-zIB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HLg-AO-8lB"/>
-                                <exclude reference="mxE-v9-94N"/>
-                                <exclude reference="q5B-At-AIa"/>
-                                <exclude reference="zZy-o6-rbG"/>
+                                <exclude reference="VuR-Ha-o0M"/>
+                                <exclude reference="uZT-UQ-GYd"/>
+                                <exclude reference="gX5-Wo-zeB"/>
+                                <exclude reference="vSL-Dz-6Wp"/>
                                 <exclude reference="HJx-lU-UQR"/>
                                 <exclude reference="sv0-1F-J1s"/>
                                 <exclude reference="yes-T5-5GY"/>
-                                <exclude reference="0pb-fS-j4p"/>
-                                <exclude reference="aNY-qR-U8S"/>
-                                <exclude reference="eT6-yD-rnS"/>
-                                <exclude reference="mYC-HN-TiA"/>
-                                <exclude reference="gX5-Wo-zeB"/>
-                                <exclude reference="vSL-Dz-6Wp"/>
-                                <exclude reference="SlC-C3-WFo"/>
-                                <exclude reference="aUo-bb-nUC"/>
-                                <exclude reference="yai-3s-rmJ"/>
-                                <exclude reference="VuR-Ha-o0M"/>
-                                <exclude reference="uZT-UQ-GYd"/>
                                 <exclude reference="Lh5-TB-K31"/>
                                 <exclude reference="hnW-nC-OYs"/>
                                 <exclude reference="2DE-3M-eD6"/>
                                 <exclude reference="WP1-9n-26E"/>
+                                <exclude reference="HLg-AO-8lB"/>
+                                <exclude reference="mxE-v9-94N"/>
+                                <exclude reference="q5B-At-AIa"/>
+                                <exclude reference="zZy-o6-rbG"/>
+                                <exclude reference="0pb-fS-j4p"/>
+                                <exclude reference="aNY-qR-U8S"/>
+                                <exclude reference="eT6-yD-rnS"/>
+                                <exclude reference="mYC-HN-TiA"/>
+                                <exclude reference="SlC-C3-WFo"/>
+                                <exclude reference="aUo-bb-nUC"/>
+                                <exclude reference="yai-3s-rmJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1307,24 +1307,13 @@
                                 <include reference="SuS-wO-zIB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HLg-AO-8lB"/>
-                                <include reference="mxE-v9-94N"/>
-                                <include reference="q5B-At-AIa"/>
-                                <include reference="zZy-o6-rbG"/>
+                                <include reference="VuR-Ha-o0M"/>
+                                <include reference="uZT-UQ-GYd"/>
+                                <include reference="gX5-Wo-zeB"/>
+                                <include reference="vSL-Dz-6Wp"/>
                                 <include reference="HJx-lU-UQR"/>
                                 <include reference="sv0-1F-J1s"/>
                                 <include reference="yes-T5-5GY"/>
-                                <include reference="0pb-fS-j4p"/>
-                                <include reference="aNY-qR-U8S"/>
-                                <include reference="eT6-yD-rnS"/>
-                                <include reference="mYC-HN-TiA"/>
-                                <include reference="gX5-Wo-zeB"/>
-                                <include reference="vSL-Dz-6Wp"/>
-                                <include reference="SlC-C3-WFo"/>
-                                <include reference="aUo-bb-nUC"/>
-                                <include reference="yai-3s-rmJ"/>
-                                <include reference="VuR-Ha-o0M"/>
-                                <include reference="uZT-UQ-GYd"/>
                                 <include reference="Lh5-TB-K31"/>
                                 <include reference="hnW-nC-OYs"/>
                                 <exclude reference="iZs-Ej-PhP"/>
@@ -1333,6 +1322,17 @@
                                 <include reference="WP1-9n-26E"/>
                                 <exclude reference="Yzd-rX-37t"/>
                                 <exclude reference="yBQ-eE-4kt"/>
+                                <include reference="HLg-AO-8lB"/>
+                                <include reference="mxE-v9-94N"/>
+                                <include reference="q5B-At-AIa"/>
+                                <include reference="zZy-o6-rbG"/>
+                                <include reference="0pb-fS-j4p"/>
+                                <include reference="aNY-qR-U8S"/>
+                                <include reference="eT6-yD-rnS"/>
+                                <include reference="mYC-HN-TiA"/>
+                                <include reference="SlC-C3-WFo"/>
+                                <include reference="aUo-bb-nUC"/>
+                                <include reference="yai-3s-rmJ"/>
                             </mask>
                         </variation>
                     </view>

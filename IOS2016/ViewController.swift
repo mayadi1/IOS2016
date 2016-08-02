@@ -261,6 +261,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         if self.count >= self.usersInfo.count{
             
+            self.dismissAlert()
             
             let alertController = UIAlertController(title: nil, message: "Came back later for new users", preferredStyle: .Alert)
             

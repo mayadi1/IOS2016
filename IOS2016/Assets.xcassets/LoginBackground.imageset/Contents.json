@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "LoginMain.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "RunningmateBackground.png",
       "scale" : "2x"
     },
     {

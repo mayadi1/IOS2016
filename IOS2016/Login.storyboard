@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aeD-SE-tP5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aeD-SE-tP5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,7 +12,7 @@
         <!--Delegate-->
         <scene sceneID="pxV-Rt-hAT">
             <objects>
-                <viewController id="aeD-SE-tP5" customClass="MainLoginViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aeD-SE-tP5" customClass="MainLoginViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AVm-AW-kau"/>
                         <viewControllerLayoutGuide type="bottom" id="STk-ZT-AdZ"/>
@@ -21,9 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginMain" translatesAutoresizingMaskIntoConstraints="NO" id="ePD-Ru-guv">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssL-ME-849">
                                 <rect key="frame" x="158" y="542" width="180" height="30"/>
                                 <constraints>
@@ -78,9 +75,7 @@
                         <constraints>
                             <constraint firstItem="NDg-Ch-4io" firstAttribute="firstBaseline" secondItem="ssL-ME-849" secondAttribute="firstBaseline" id="3Na-Nk-Jk5"/>
                             <constraint firstItem="STk-ZT-AdZ" firstAttribute="top" secondItem="ssL-ME-849" secondAttribute="bottom" constant="41" id="7o1-Ng-E7e"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="leading" secondItem="rPU-4I-7Ab" secondAttribute="leading" id="8rV-x6-lAj"/>
                             <constraint firstItem="ssL-ME-849" firstAttribute="top" secondItem="NDg-Ch-4io" secondAttribute="top" id="EWF-9W-e6i"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="bottom" secondItem="STk-ZT-AdZ" secondAttribute="top" id="IxK-SD-Hk9"/>
                             <constraint firstItem="Izh-Bu-xwG" firstAttribute="leading" secondItem="rPU-4I-7Ab" secondAttribute="leadingMargin" constant="-40" id="LAx-8c-rKy">
                                 <variation key="heightClass=regular-widthClass=compact" constant="13"/>
                             </constraint>
@@ -88,8 +83,6 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="509"/>
                             </constraint>
                             <constraint firstItem="NDg-Ch-4io" firstAttribute="leading" secondItem="ssL-ME-849" secondAttribute="trailing" constant="15" id="OFv-hK-u0k"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="leading" secondItem="rPU-4I-7Ab" secondAttribute="leadingMargin" constant="-25" id="PxO-mk-29m"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="top" secondItem="rPU-4I-7Ab" secondAttribute="top" id="U51-ND-j8t"/>
                             <constraint firstItem="ssL-ME-849" firstAttribute="leading" secondItem="rPU-4I-7Ab" secondAttribute="leadingMargin" constant="18" id="WUx-Tg-TOm"/>
                             <constraint firstItem="Izh-Bu-xwG" firstAttribute="trailing" secondItem="rPU-4I-7Ab" secondAttribute="trailingMargin" id="X9e-04-yv9">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-25"/>
@@ -98,13 +91,9 @@
                             <constraint firstItem="ssL-ME-849" firstAttribute="firstBaseline" secondItem="NDg-Ch-4io" secondAttribute="firstBaseline" id="aJ0-hM-9gS"/>
                             <constraint firstItem="NDg-Ch-4io" firstAttribute="baseline" secondItem="ssL-ME-849" secondAttribute="baseline" id="c0y-no-ReD"/>
                             <constraint firstItem="NDg-Ch-4io" firstAttribute="leading" secondItem="ssL-ME-849" secondAttribute="trailing" constant="15" id="cjf-1t-E3j"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="bottom" secondItem="STk-ZT-AdZ" secondAttribute="top" id="cpC-vx-Rgh"/>
-                            <constraint firstItem="ePD-Ru-guv" firstAttribute="top" secondItem="rPU-4I-7Ab" secondAttribute="top" id="exF-4d-xak"/>
                             <constraint firstItem="ssL-ME-849" firstAttribute="top" secondItem="NDg-Ch-4io" secondAttribute="top" id="gJ5-Kj-J8A"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ePD-Ru-guv" secondAttribute="trailing" constant="-15" id="j5T-bN-B7s"/>
                             <constraint firstItem="ssL-ME-849" firstAttribute="leading" secondItem="rPU-4I-7Ab" secondAttribute="leading" constant="158" id="nGF-CP-4rj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NDg-Ch-4io" secondAttribute="trailing" constant="49" id="pid-XJ-cPU"/>
-                            <constraint firstAttribute="trailing" secondItem="ePD-Ru-guv" secondAttribute="trailing" id="r0b-a0-RX4"/>
                             <constraint firstItem="NDg-Ch-4io" firstAttribute="baseline" secondItem="ssL-ME-849" secondAttribute="baseline" id="rmI-sv-UuL"/>
                         </constraints>
                         <variation key="default">
@@ -112,13 +101,9 @@
                                 <exclude reference="Izh-Bu-xwG"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="PxO-mk-29m"/>
-                                <exclude reference="cpC-vx-Rgh"/>
-                                <exclude reference="exF-4d-xak"/>
                                 <exclude reference="LAx-8c-rKy"/>
                                 <exclude reference="LC6-cv-4JG"/>
                                 <exclude reference="X9e-04-yv9"/>
-                                <exclude reference="j5T-bN-B7s"/>
                                 <exclude reference="WUx-Tg-TOm"/>
                                 <exclude reference="aJ0-hM-9gS"/>
                                 <exclude reference="gJ5-Kj-J8A"/>
@@ -133,18 +118,10 @@
                                 <include reference="Izh-Bu-xwG"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8rV-x6-lAj"/>
-                                <exclude reference="IxK-SD-Hk9"/>
-                                <include reference="PxO-mk-29m"/>
-                                <exclude reference="U51-ND-j8t"/>
-                                <include reference="cpC-vx-Rgh"/>
-                                <include reference="exF-4d-xak"/>
                                 <exclude reference="EWF-9W-e6i"/>
                                 <include reference="LAx-8c-rKy"/>
                                 <include reference="LC6-cv-4JG"/>
                                 <include reference="X9e-04-yv9"/>
-                                <include reference="j5T-bN-B7s"/>
-                                <exclude reference="r0b-a0-RX4"/>
                                 <include reference="WUx-Tg-TOm"/>
                                 <include reference="aJ0-hM-9gS"/>
                                 <include reference="gJ5-Kj-J8A"/>
@@ -171,7 +148,7 @@
         <!--Login View Controller-->
         <scene sceneID="VYD-nU-4eN">
             <objects>
-                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kCH-2U-7SR" customClass="LoginViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kCH-2U-7SR" customClass="LoginViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VbR-eq-U8F"/>
                         <viewControllerLayoutGuide type="bottom" id="sUl-fY-9Y0"/>
@@ -424,7 +401,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="NhR-yr-ryw">
             <objects>
-                <viewController storyboardIdentifier="Create" id="5Eu-8Q-qfe" customClass="SignUpViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Create" id="5Eu-8Q-qfe" customClass="SignUpViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PbM-Xd-VwU"/>
                         <viewControllerLayoutGuide type="bottom" id="M3k-qS-PPX"/>
@@ -723,7 +700,7 @@
         <!--Values View Controller-->
         <scene sceneID="RxA-fP-uNH">
             <objects>
-                <viewController id="XGO-T4-Vxu" customClass="ValuesViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XGO-T4-Vxu" customClass="ValuesViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Czy-P4-r2W"/>
                         <viewControllerLayoutGuide type="bottom" id="clj-cg-3Hw"/>
@@ -1059,7 +1036,7 @@
         <!--Values View Controller-->
         <scene sceneID="XKW-N8-KaN">
             <objects>
-                <viewController storyboardIdentifier="FbValuesAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAD-l9-be3" customClass="FBValuesViewController" customModule="IOS2016" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FbValuesAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tAD-l9-be3" customClass="FBValuesViewController" customModule="Runningmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ta6-Tv-gYd"/>
                         <viewControllerLayoutGuide type="bottom" id="ncI-k6-P2k"/>
@@ -1273,28 +1250,28 @@
                                 <exclude reference="SuS-wO-zIB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HLg-AO-8lB"/>
-                                <exclude reference="mxE-v9-94N"/>
-                                <exclude reference="q5B-At-AIa"/>
-                                <exclude reference="zZy-o6-rbG"/>
+                                <exclude reference="VuR-Ha-o0M"/>
+                                <exclude reference="uZT-UQ-GYd"/>
+                                <exclude reference="gX5-Wo-zeB"/>
+                                <exclude reference="vSL-Dz-6Wp"/>
                                 <exclude reference="HJx-lU-UQR"/>
                                 <exclude reference="sv0-1F-J1s"/>
                                 <exclude reference="yes-T5-5GY"/>
-                                <exclude reference="0pb-fS-j4p"/>
-                                <exclude reference="aNY-qR-U8S"/>
-                                <exclude reference="eT6-yD-rnS"/>
-                                <exclude reference="mYC-HN-TiA"/>
-                                <exclude reference="gX5-Wo-zeB"/>
-                                <exclude reference="vSL-Dz-6Wp"/>
-                                <exclude reference="SlC-C3-WFo"/>
-                                <exclude reference="aUo-bb-nUC"/>
-                                <exclude reference="yai-3s-rmJ"/>
-                                <exclude reference="VuR-Ha-o0M"/>
-                                <exclude reference="uZT-UQ-GYd"/>
                                 <exclude reference="Lh5-TB-K31"/>
                                 <exclude reference="hnW-nC-OYs"/>
                                 <exclude reference="2DE-3M-eD6"/>
                                 <exclude reference="WP1-9n-26E"/>
+                                <exclude reference="HLg-AO-8lB"/>
+                                <exclude reference="mxE-v9-94N"/>
+                                <exclude reference="q5B-At-AIa"/>
+                                <exclude reference="zZy-o6-rbG"/>
+                                <exclude reference="0pb-fS-j4p"/>
+                                <exclude reference="aNY-qR-U8S"/>
+                                <exclude reference="eT6-yD-rnS"/>
+                                <exclude reference="mYC-HN-TiA"/>
+                                <exclude reference="SlC-C3-WFo"/>
+                                <exclude reference="aUo-bb-nUC"/>
+                                <exclude reference="yai-3s-rmJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1307,24 +1284,13 @@
                                 <include reference="SuS-wO-zIB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HLg-AO-8lB"/>
-                                <include reference="mxE-v9-94N"/>
-                                <include reference="q5B-At-AIa"/>
-                                <include reference="zZy-o6-rbG"/>
+                                <include reference="VuR-Ha-o0M"/>
+                                <include reference="uZT-UQ-GYd"/>
+                                <include reference="gX5-Wo-zeB"/>
+                                <include reference="vSL-Dz-6Wp"/>
                                 <include reference="HJx-lU-UQR"/>
                                 <include reference="sv0-1F-J1s"/>
                                 <include reference="yes-T5-5GY"/>
-                                <include reference="0pb-fS-j4p"/>
-                                <include reference="aNY-qR-U8S"/>
-                                <include reference="eT6-yD-rnS"/>
-                                <include reference="mYC-HN-TiA"/>
-                                <include reference="gX5-Wo-zeB"/>
-                                <include reference="vSL-Dz-6Wp"/>
-                                <include reference="SlC-C3-WFo"/>
-                                <include reference="aUo-bb-nUC"/>
-                                <include reference="yai-3s-rmJ"/>
-                                <include reference="VuR-Ha-o0M"/>
-                                <include reference="uZT-UQ-GYd"/>
                                 <include reference="Lh5-TB-K31"/>
                                 <include reference="hnW-nC-OYs"/>
                                 <exclude reference="iZs-Ej-PhP"/>
@@ -1333,6 +1299,17 @@
                                 <include reference="WP1-9n-26E"/>
                                 <exclude reference="Yzd-rX-37t"/>
                                 <exclude reference="yBQ-eE-4kt"/>
+                                <include reference="HLg-AO-8lB"/>
+                                <include reference="mxE-v9-94N"/>
+                                <include reference="q5B-At-AIa"/>
+                                <include reference="zZy-o6-rbG"/>
+                                <include reference="0pb-fS-j4p"/>
+                                <include reference="aNY-qR-U8S"/>
+                                <include reference="eT6-yD-rnS"/>
+                                <include reference="mYC-HN-TiA"/>
+                                <include reference="SlC-C3-WFo"/>
+                                <include reference="aUo-bb-nUC"/>
+                                <include reference="yai-3s-rmJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -1350,7 +1327,6 @@
     <resources>
         <image name="EmailLogin" width="640" height="1136"/>
         <image name="EmailSignup" width="640" height="1136"/>
-        <image name="LoginMain" width="640" height="1136"/>
         <image name="Screen Shot 2016-07-24 at 11.25.54 AM" width="307" height="52"/>
     </resources>
 </document>

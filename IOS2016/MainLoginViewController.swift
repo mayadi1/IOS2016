@@ -12,20 +12,25 @@ import FBSDKCoreKit
 import SideMenu
 import FirebaseDatabase
 import FBSDKLoginKit
+
 class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     var loginButton: FBSDKLoginButton = FBSDKLoginButton()
     
     let usersRef = FIRDatabase.database().reference().child("users")
-    
-    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+        @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginButton.center = self.view.center
+      
         self.loginButton.clipsToBounds = true
         self.loginButton.delegate = self
         self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-        customizeButton(self.facebookLoginButton)
-        
+        // Customize Facebook login button features.
+        facebookLoginButton.backgroundColor = UIColor.clearColor()
+        facebookLoginButton.layer.cornerRadius = 5
+        facebookLoginButton.layer.borderWidth = 1
+        facebookLoginButton.layer.borderColor = UIColor.clearColor().CGColor
+      
         
         
         //        self.view!.addSubview(loginButton)
@@ -110,15 +115,4 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("user logged out")
     }
-    
-    // Customizing Facebook Login Button
-    func customizeButton(button: UIButton!) {
-        button.backgroundColor = UIColor.clearColor()
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.clearColor().CGColor
-        
-    }
-    
-    
 }

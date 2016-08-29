@@ -15,11 +15,12 @@ class UsersInfo: NSObject {
         
         var name: String?
         var photo: String?
+        var uid: String?
+    init(tempName: String, tempPhoto: String, tempUID: String){
         
-        init(tempName: String, tempPhoto: String){
-            
             self.name = tempName
             self.photo = tempPhoto
+            self.uid = tempUID
         }
         
         

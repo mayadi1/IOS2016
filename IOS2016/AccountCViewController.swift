@@ -75,7 +75,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @IBAction func CreateAccount(sender: AnyObject) {
-                
+        //This function will register an account with the server and then load pertinent details here. Alternately, it will save teh details locally and then prepare them to be completed with interests/beliefs before being sent to the server.
+        //I honestly have no idea, just spitballing here, since I work front-end. But this method was blank, so I figured I'd annotate it.
+        //Love, Aerykk
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {

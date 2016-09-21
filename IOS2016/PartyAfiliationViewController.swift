@@ -16,17 +16,17 @@ class PartyAfiliationViewController: UIViewController , UITableViewDelegate, UIT
 
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.data.count
         
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
         
-        cell.textLabel?.text = self.data[indexPath.row]
+        cell.textLabel?.text = self.data[(indexPath as NSIndexPath).row]
         
         
         return cell
@@ -35,12 +35,12 @@ class PartyAfiliationViewController: UIViewController , UITableViewDelegate, UIT
 
 
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         
         
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 
     }//End of the PartyA VC

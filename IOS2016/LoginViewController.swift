@@ -29,22 +29,22 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func LogIn(sender: AnyObject) {
+    @IBAction func LogIn(_ sender: AnyObject) {
         
-        FIRAuth.auth()?.signInWithEmail(emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
                 
                 
-                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 
                 
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     
                 }
                 alertController.addAction(OKAction)
                 
-                self.presentViewController(alertController, animated: true, completion:nil)
+                self.present(alertController, animated: true, completion:nil)
                 
                 
                 
@@ -55,9 +55,9 @@ class LoginViewController: UIViewController {
                 let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 // Uncomment this when we get feed done and add HomeView as the storyboard id.
                 
-                let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+                let MapViewController: UIViewController = loginStoryBoard.instantiateViewController(withIdentifier: "MainVC")
                 
-                self.presentViewController(MapViewController, animated: false, completion: nil)
+                self.present(MapViewController, animated: false, completion: nil)
 
               
                 
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 

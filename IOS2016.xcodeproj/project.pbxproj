@@ -175,6 +175,7 @@
 					18432C421D43396F00E67B27 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 6KKRC5GQMV;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -401,6 +402,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayadios.IOS2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -417,6 +419,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ayadios.IOS2016;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

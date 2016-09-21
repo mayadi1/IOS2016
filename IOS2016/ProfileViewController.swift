@@ -29,11 +29,11 @@ class ProfileViewController: UITableViewController {
     
     @IBOutlet weak var bio: UITextView!
 
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let imgData = defaults.objectForKey("image") as? NSData
+        let defaults = UserDefaults.standard
+        if let imgData = defaults.object(forKey: "image") as? Data
         {
             if let image = UIImage(data: imgData)
             {
@@ -47,7 +47,7 @@ class ProfileViewController: UITableViewController {
         let ref = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-        ref.child("users").child(userID!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             
             
@@ -79,22 +79,22 @@ class ProfileViewController: UITableViewController {
         
       
     }
-    @IBAction func logoutButtonPressed(sender: AnyObject) {
+    @IBAction func logoutButtonPressed(_ sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
         
         // Facebook log out by setting access token to nil, then sending back to the initial viewcontroller.
         
-      FBSDKAccessToken.setCurrentAccessToken(nil)
+      FBSDKAccessToken.setCurrent(nil)
         
         try! FIRAuth.auth()!.signOut()
         print("signed out")
         
-        self.view.window!.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
 
 
         
     }
-    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToMenu(_ segue: UIStoryboardSegue) {}
     
     
 }//End of the PVC class

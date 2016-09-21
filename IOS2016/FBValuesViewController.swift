@@ -35,14 +35,14 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         // Do any additional setup after loading the view.
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int  {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int  {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1 {
             return self.data.count
@@ -54,7 +54,7 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1 {
             return data[row]
@@ -67,7 +67,7 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         return ""
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1{
             self.temp1  = self.data[row]
@@ -84,11 +84,11 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         }
         
     }
-    @IBAction func goBuckButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func goBuckButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func doneButtonPressed(sender: AnyObject) {
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
         
         let user = FIRAuth.auth()?.currentUser
         
@@ -109,9 +109,9 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         // Uncomment this when we get feed done and add HomeView as the storyboard id.
         
-        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+        let MapViewController: UIViewController = loginStoryBoard.instantiateViewController(withIdentifier: "MainVC")
         
-        self.presentViewController(MapViewController, animated: false, completion: nil)
+        self.present(MapViewController, animated: false, completion: nil)
         
         
         

@@ -36,30 +36,30 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
-    func selectPhoto(tap: UITapGestureRecognizer) {
+    func selectPhoto(_ tap: UITapGestureRecognizer) {
         
         
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = true
         
-        let photoOptionAlertController = UIAlertController(title: "SourceType?", message: nil, preferredStyle: .Alert)
+        let photoOptionAlertController = UIAlertController(title: "SourceType?", message: nil, preferredStyle: .alert)
         
-        let cameraAction = UIAlertAction(title: "Take a Camera Shot", style: .Default, handler: { (UIAlertAction) in
+        let cameraAction = UIAlertAction(title: "Take a Camera Shot", style: .default, handler: { (UIAlertAction) in
             
-            self.imagePicker.sourceType = .Camera
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            self.imagePicker.sourceType = .camera
+            self.present(self.imagePicker, animated: true, completion: nil)
             
             
         })
         
-        let photoLibraryAction = UIAlertAction(title: "Choose from Photo Library", style: .Default, handler: { (UIAlertAction) in
+        let photoLibraryAction = UIAlertAction(title: "Choose from Photo Library", style: .default, handler: { (UIAlertAction) in
             
-            self.imagePicker.sourceType = .PhotoLibrary
-            self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
             
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (UIAlertAction) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (UIAlertAction) in
             
             // ..
         }
@@ -68,29 +68,29 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         photoOptionAlertController.addAction(photoLibraryAction)
         photoOptionAlertController.addAction(cancelAction)
         
-        self.presentViewController(photoOptionAlertController, animated: true, completion: nil)
+        self.present(photoOptionAlertController, animated: true, completion: nil)
     }
 
  
     
     
-    @IBAction func CreateAccount(sender: AnyObject) {
+    @IBAction func CreateAccount(_ sender: AnyObject) {
                 
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.selectedPhoto = info[UIImagePickerControllerEditedImage] as? UIImage
         self.profileImage.image = selectedPhoto
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         
     }
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
        
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dvc = segue.destinationViewController as! ValuesViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! ValuesViewController
         
         dvc.passedName = self.userNamerTextField.text
         dvc.passedEmail = self.emailText.text
@@ -98,10 +98,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         dvc.image = self.selectedPhoto
         
     }
-    @IBAction func gobackButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func gobackButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }//End of the class

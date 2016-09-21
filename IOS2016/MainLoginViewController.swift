@@ -34,19 +34,19 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
         
         // Code to deal with users who hit cancel on the facebook login access.
         if (error != nil)
         {
             // If error occurs, login button appears
-            self.facebookLoginButton.hidden = false
+            self.facebookLoginButton.isHidden = false
         }
         else if(result.isCancelled) {
             print("user did cancl")
             // handle the cancel event, show the login button
-            self.facebookLoginButton.hidden = false
+            self.facebookLoginButton.isHidden = false
             
         } else {  // User hits OK to grant rights to use Facebook Login.
             print("user logged in")
@@ -57,11 +57,11 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
             
             // This is getting an access token for the signed-in user and exchanging it for a Firebase credential:
             
-            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
             
             // Step 5 authenticate with Firebase using the Firebase credential
-            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 print("user logged into firebase")
                 
                 // When user signed in with Facebook, send to address view controller.
@@ -71,7 +71,7 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                 
                 let condition = self.usersRef.child("\(user!.uid)")
                 
-                condition.observeEventType(.Value, withBlock:  { (snapshot) in
+                condition.observe(.value, with:  { (snapshot) in
                     
                     
                     if snapshot.exists() {
@@ -81,9 +81,9 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         // Uncomment this when we get feed done and add HomeView as the storyboard id.
                         
-                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewController(withIdentifier: "MainVC")
                         
-                        self.presentViewController(MapViewController, animated: false, completion: nil)
+                        self.present(MapViewController, animated: false, completion: nil)
                         
                         
                         
@@ -93,9 +93,9 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
                         let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
                         // Uncomment this when we get feed done and add HomeView as the storyboard id.
                         
-                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("FbValuesAdd")
+                        let MapViewController: UIViewController = loginStoryBoard.instantiateViewController(withIdentifier: "FbValuesAdd")
                         
-                        self.presentViewController(MapViewController, animated: false, completion: nil)
+                        self.present(MapViewController, animated: false, completion: nil)
                         
                     }
                     
@@ -110,16 +110,16 @@ class MainLoginViewController: UIViewController,FBSDKLoginButtonDelegate {
         
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("user logged out")
     }
     
     // Customizing Facebook Login Button
-    func customizeButton(button: UIButton!) {
-        button.backgroundColor = UIColor.clearColor()
+    func customizeButton(_ button: UIButton!) {
+        button.backgroundColor = UIColor.clear
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.clearColor().CGColor
+        button.layer.borderColor = UIColor.clear.cgColor
         
     }
     

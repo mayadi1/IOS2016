@@ -44,18 +44,18 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 
         
         
-        self.likeImage.hidden = true
+        self.likeImage.isHidden = true
         
-        self.down.hidden = true
+        self.down.isHidden = true
         
         
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
-        swipeDown.direction = UISwipeGestureRecognizerDirection.Right
+        swipeDown.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeDown)
         
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
-        swipeUp.direction = UISwipeGestureRecognizerDirection.Left
+        swipeUp.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeUp)
         
         
@@ -65,22 +65,22 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             let ref = FIRDatabase.database().reference()
             
             let userID = FIRAuth.auth()?.currentUser?.uid
-            ref.child("users").child(userID!).child("userProfilePic").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            ref.child("users").child(userID!).child("userProfilePic").observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 
                 let filePath = snapshot.value as! String
                 
-                let url = NSURL(string: filePath)
-                if let data = NSData(contentsOfURL: url!){
+                let url = URL(string: filePath)
+                if let data = try? Data(contentsOf: url!){
                     
                     
                     UIImage.init(data: data)
                     
-                    var image = UIImage.init(data: data)
+                    let image = UIImage.init(data: data)
                     
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    var imgData = UIImageJPEGRepresentation(image!, 1)
-                    defaults.setObject(imgData, forKey: "image")
+                    let defaults = UserDefaults.standard
+                    let imgData = UIImageJPEGRepresentation(image!, 1)
+                    defaults.set(imgData, forKey: "image")
                     
                     
                     
@@ -110,23 +110,23 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     
     //Hide Status bar
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     
-    @IBAction func ViewButtonTapped(sender: AnyObject) {
+    @IBAction func ViewButtonTapped(_ sender: AnyObject) {
         
         print("View is tapped!")
-        performSegueWithIdentifier("showInfo", sender: nil)
+        performSegue(withIdentifier: "showInfo", sender: nil)
         
         
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showInfo"{
-            let vc = segue.destinationViewController as! UIViewController
+            let vc = segue.destination 
             let controller = vc.popoverPresentationController
             
             if controller != nil{
@@ -138,31 +138,31 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         }
     }
     
-    @IBAction func test(sender: AnyObject) {
+    @IBAction func test(_ sender: AnyObject) {
         
-        performSegueWithIdentifier("showInfo", sender: nil)
+        performSegue(withIdentifier: "showInfo", sender: nil)
         
     }
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle{
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle{
         
         
-        return .None
+        return .none
     }
     
     
     
-    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+    func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
+            case UISwipeGestureRecognizerDirection.right:
                 
                 
-                self.likeImage.hidden = false
+                self.likeImage.isHidden = false
                 
-                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+                var timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 print("Swiped right")
                 
                 
@@ -170,10 +170,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 
                 
                 
-            case UISwipeGestureRecognizerDirection.Left:
+            case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
-                self.down.hidden = false
-                var timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+                self.down.isHidden = false
+                var timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 
               self.changeUser()
               
@@ -187,8 +187,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     func dismissAlert()
     {
-        self.likeImage.hidden = true
-        self.down.hidden = true
+        self.likeImage.isHidden = true
+        self.down.isHidden = true
         
     }
     
@@ -200,7 +200,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         
         
-        self.usersRef.observeEventType(.Value, withBlock:  { (snapshot) in
+        self.usersRef.observe(.value, with:  { (snapshot) in
             
             let value = snapshot.value
             
@@ -209,15 +209,19 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             let usersValues = tempProfileInfoArray.allValues
             
-            for each in usersValues{
+            
+            for eachh in usersValues{
                 
                 
+                let each: NSDictionary = eachh as! NSDictionary
                 self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String, tempUID: each["useruid"] as! String))
                 
-        
+
+                
                 
             }
             
+
             
             self.activityIndicator.stopAnimating()
             
@@ -232,12 +236,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             let filePath = firstUser?.photo
             
-            let url = NSURL(string: filePath!)
+            let url = URL(string: filePath!)
             
-            if let data = NSData(contentsOfURL: url!){
+            if let data = try? Data(contentsOf: url!){
                 
                 
-                dispatch_async(dispatch_get_main_queue(), { 
+                DispatchQueue.main.async(execute: { 
                      self.mainImageView.image = UIImage.init(data: data)
                 })
                
@@ -263,17 +267,17 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             self.dismissAlert()
             
-            let alertController = UIAlertController(title: nil, message: "Came back later for new users", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: nil, message: "Came back later for new users", preferredStyle: .alert)
             
             
-            let OKAction = UIAlertAction(title: "Okay", style: .Default) { (action:UIAlertAction!) in
+            let OKAction = UIAlertAction(title: "Okay", style: .default) { (action:UIAlertAction!) in
                 
                 self.likeImage.removeFromSuperview()
                 self.down.removeFromSuperview()
             }
             alertController.addAction(OKAction)
             
-            self.presentViewController(alertController, animated: true, completion:nil)
+            self.present(alertController, animated: true, completion:nil)
             
             
             return
@@ -293,9 +297,9 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         let filePath = tempUser.photo
         
-        let url = NSURL(string: filePath!)
+        let url = URL(string: filePath!)
         
-        if let data = NSData(contentsOfURL: url!){
+        if let data = try? Data(contentsOf: url!){
             
             
             self.mainImageView.image = UIImage.init(data: data)

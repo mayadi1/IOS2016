@@ -31,17 +31,17 @@
         }
         
         
-        @IBAction func slider(sender: AnyObject) {
+        @IBAction func slider(_ sender: AnyObject) {
             
-            var num = Int(self.ageValue.value)
+            let num = Int(self.ageValue.value)
             
             
             self.age.text = "\(num)"
         }
         
         
-        @IBAction func dis(sender: AnyObject) {
-            var num2 = Int(self.diss.value)
+        @IBAction func dis(_ sender: AnyObject) {
+            let num2 = Int(self.diss.value)
             
             
             self.nnn.text = "\(num2)" + " Miles"

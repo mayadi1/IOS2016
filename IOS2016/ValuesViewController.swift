@@ -43,25 +43,25 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityAnimation.hidden = true
+        self.activityAnimation.isHidden = true
         self.hideKeyboardWhenTappedAround()
 
         
     }
 
     //Hide Status Bar
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
     
 
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int  {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int  {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1 {
             return self.data.count
@@ -73,7 +73,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1 {
             return data[row]
@@ -86,7 +86,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         return ""
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
         if pickerView.tag == 1{
             self.temp1  = self.data[row]
@@ -103,7 +103,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         }
         
     }
-    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+    func ResizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
         
         let widthRatio  = targetSize.width  / image.size.width
@@ -112,46 +112,46 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         // Figure out what our orientation is, and use that to form the rectangle
         var newSize: CGSize
         if(widthRatio > heightRatio) {
-            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
         } else {
-            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
         }
         
         // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         
         // Actually do the resizing to the rect using the ImageContext stuff
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.drawInRect(rect)
+        image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
-    @IBAction func doneButtonPressed(sender: AnyObject) {
-        self.doneButton.enabled = false
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
+        self.doneButton.isEnabled = false
         
-        self.activityAnimation.hidden = false
+        self.activityAnimation.isHidden = false
         self.activityAnimation.startAnimating()
-        var data = NSData()
+        var data = Data()
         
-        let newImage = self.ResizeImage(self.image!,targetSize: CGSizeMake(382, 725))
+        let newImage = self.ResizeImage(self.image!,targetSize: CGSize(width: 382, height: 725))
         data = UIImageJPEGRepresentation(newImage, 0.1)!
         
         
         
-        FIRAuth.auth()?.createUserWithEmail(self.passedEmail!, password: self.passedPassword!, completion: { (user, error) in
+        FIRAuth.auth()?.createUser(withEmail: self.passedEmail!, password: self.passedPassword!, completion: { (user, error) in
             if let error = error {
                 
-                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 
                 
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     
                 }
                 alertController.addAction(OKAction)
                 
-                self.presentViewController(alertController, animated: true, completion:nil)
+                self.present(alertController, animated: true, completion:nil)
                 
                 
                 
@@ -178,7 +178,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 
                 let changeRequest = user?.profileChangeRequest()
                 changeRequest?.displayName = self.passedName
-                changeRequest?.commitChangesWithCompletion({ (error) in
+                changeRequest?.commitChanges(completion: { (error) in
                     if let error = error {
                         print(error.localizedDescription)
                         
@@ -197,9 +197,9 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 let metadata =  FIRStorageMetadata()
                 metadata.contentType = "image/jpeg"
                 
-                self.storageRef.child(filePath).putData(data, metadata: metadata, completion: { (metadata, error) in
+                self.storageRef.child(filePath).put(data, metadata: metadata, completion: { (metadata, error) in
                     if let error = error{
-                        print("\(error.description)")
+                        print("\(error)")
                         
                         
                         
@@ -208,8 +208,8 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                     self.fileUrl = metadata?.downloadURLs![0].absoluteString
                     rootRef.child("users").child("\(user!.uid)").child("userProfilePic").setValue(self.fileUrl)
                     let changeREquestPhoto = user!.profileChangeRequest()
-                    changeREquestPhoto.photoURL = NSURL(string: self.fileUrl)
-                    changeREquestPhoto.commitChangesWithCompletion({ (error) in
+                    changeREquestPhoto.photoURL = URL(string: self.fileUrl)
+                    changeREquestPhoto.commitChanges(completion: { (error) in
                         if let error = error{
                             print(error.localizedDescription)
                             return
@@ -218,9 +218,9 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                             
                             let loginStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                             
-                            let MapViewController: UIViewController = loginStoryBoard.instantiateViewControllerWithIdentifier("MainVC")
+                            let MapViewController: UIViewController = loginStoryBoard.instantiateViewController(withIdentifier: "MainVC")
                             
-                            self.presentViewController(MapViewController, animated: false, completion: nil)
+                            self.present(MapViewController, animated: false, completion: nil)
                             
                         }
                     })
@@ -233,7 +233,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
             
         })
 
-        FIRAuth.auth()?.signInWithEmail(self.passedEmail!, password: self.passedPassword!) { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: self.passedEmail!, password: self.passedPassword!) { (user, error) in
          
            
 
@@ -249,8 +249,8 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     
     var fileUrl: String!
 
-    @IBAction func goBuckButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func goBuckButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }//End of VC class

@@ -118,7 +118,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBAction func ViewButtonTapped(_ sender: AnyObject) {
         
         print("View is tapped!")
-        performSegue(withIdentifier: "showInfo", sender: nil)
+        
+        
+        if(self.count >= self.usersInfo.count){
+            print("OutOfRange")
+        }else{
+            performSegue(withIdentifier: "showInfo", sender: nil)}
         
         
         
@@ -126,9 +131,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showInfo"{
-            let vc = segue.destination 
+            let vc = segue.destination as! ProfileTVC
+            vc.userInfo = [self.usersInfo[count]]
             let controller = vc.popoverPresentationController
-            
+
             if controller != nil{
                 controller!.delegate = self
                 

@@ -408,42 +408,29 @@
                                             <frame key="frameInset" width="600" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="😀🎼💏💏👟👞🐐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RJ-UW-WXE">
-                                                    <frame key="frameInset" minX="66" minY="17" width="174" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boU-9V-cY0">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="174" id="z5L-DE-agY"/>
+                                                        <constraint firstAttribute="width" constant="174" id="BtF-Bg-CvK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="z5L-DE-agY"/>
+                                                            <exclude reference="BtF-Bg-CvK"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="z5L-DE-agY"/>
+                                                            <include reference="BtF-Bg-CvK"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1RJ-UW-WXE" firstAttribute="centerX" secondItem="JJq-mH-GuI" secondAttribute="centerX" id="gDT-yk-Dxq"/>
-                                                <constraint firstItem="1RJ-UW-WXE" firstAttribute="centerY" secondItem="JJq-mH-GuI" secondAttribute="centerY" id="xEf-e2-3ru"/>
+                                                <constraint firstItem="boU-9V-cY0" firstAttribute="centerY" secondItem="JJq-mH-GuI" secondAttribute="centerY" id="MXw-aG-o5D"/>
+                                                <constraint firstItem="boU-9V-cY0" firstAttribute="centerX" secondItem="JJq-mH-GuI" secondAttribute="centerX" id="UNz-Np-mf4"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="gDT-yk-Dxq"/>
-                                                    <exclude reference="xEf-e2-3ru"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="gDT-yk-Dxq"/>
-                                                    <include reference="xEf-e2-3ru"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="CellUserID" rowHeight="58" id="WnY-b0-0gm">
@@ -453,8 +440,7 @@
                                             <frame key="frameInset" width="600" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Job title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvD-ep-bZG">
-                                                    <frame key="frameInset" minX="66" minY="17" width="174" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvD-ep-bZG">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="174" id="RFc-sd-Fhq"/>
                                                     </constraints>
@@ -498,8 +484,7 @@
                                             <frame key="frameInset" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Employer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogc-h5-77E">
-                                                    <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogc-h5-77E">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="195" id="Ff1-re-BTw"/>
                                                     </constraints>
@@ -549,8 +534,7 @@
                                             <frame key="frameInset" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="School, Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mos-2R-GfB">
-                                                    <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mos-2R-GfB">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="146" id="nCl-CP-WFa"/>
                                                     </constraints>
@@ -600,8 +584,7 @@
                                             <frame key="frameInset" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Languages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEw-52-FA5">
-                                                    <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEw-52-FA5">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="119" id="hqd-gu-Llo"/>
                                                     </constraints>
@@ -651,8 +634,7 @@
                                             <frame key="frameInset" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Religion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-VA-bRj">
-                                                    <frame key="frameInset" minX="-42" minY="-21" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-VA-bRj">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="98" id="Tr9-vd-laY"/>
                                                     </constraints>
@@ -695,14 +677,64 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="3VK-D8-MBc">
+                                        <rect key="frame" x="0.0" y="336" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3VK-D8-MBc" id="aXa-Iu-pLv">
+                                            <frame key="frameInset" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh4-Nv-IrN">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="98" id="kat-QW-Lkz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="kat-QW-Lkz"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="kat-QW-Lkz"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sh4-Nv-IrN" firstAttribute="centerY" secondItem="aXa-Iu-pLv" secondAttribute="centerY" id="5l7-BP-lNz"/>
+                                                <constraint firstItem="sh4-Nv-IrN" firstAttribute="centerX" secondItem="aXa-Iu-pLv" secondAttribute="centerX" id="J1D-UH-DUS"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="sh4-Nv-IrN"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="J1D-UH-DUS"/>
+                                                    <exclude reference="5l7-BP-lNz"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="sh4-Nv-IrN"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="J1D-UH-DUS"/>
+                                                    <include reference="5l7-BP-lNz"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="104" id="0L3-eh-VMf">
-                                        <rect key="frame" x="0.0" y="336" width="600" height="104"/>
+                                        <rect key="frame" x="0.0" y="380" width="600" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0L3-eh-VMf" id="eUt-nc-fWD">
                                             <frame key="frameInset" width="600" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="About me" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3az-dh-6oQ">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bio" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3az-dh-6oQ">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -748,6 +780,17 @@
                     </tableView>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="age" destination="boU-9V-cY0" id="xND-uC-5OQ"/>
+                        <outlet property="bio" destination="3az-dh-6oQ" id="KeN-nq-aw8"/>
+                        <outlet property="height" destination="mos-2R-GfB" id="c2U-dW-QPY"/>
+                        <outlet property="job" destination="zvD-ep-bZG" id="IZV-wz-h9s"/>
+                        <outlet property="naviItem" destination="NVk-ig-ZY9" id="Riw-Dc-xog"/>
+                        <outlet property="school" destination="Ogc-h5-77E" id="m3U-Nc-vnH"/>
+                        <outlet property="value1" destination="DEw-52-FA5" id="ewG-PC-jrA"/>
+                        <outlet property="value2" destination="ILJ-VA-bRj" id="JvZ-GU-XrA"/>
+                        <outlet property="value3" destination="sh4-Nv-IrN" id="6ru-Jz-8EI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uR7-Y6-yic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

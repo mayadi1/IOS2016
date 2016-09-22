@@ -214,7 +214,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 
                 let each: NSDictionary = eachh as! NSDictionary
-                self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String, tempUID: each["useruid"] as! String))
+                self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String, tempUID: each["useruid"] as! String, tempAge: each["age"] as! String, tempFollow: each["follow"] as! String, tempHeight: each["height"] as! String, tempSchool: each["school"] as! String, tempJob: each["job"] as! String, tempUserType: each["userType"] as! String, tempBio: each["bio"] as! String, tempValue1: each["value1"] as! String, tempValue2: each["value2"] as! String, tempValue3: each["value3"] as! String))
                 
             }
             
@@ -225,10 +225,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             
             
             self.nameandage.text = firstUser?.name
-            self.location.text = "Atlanta"
-            self.political.text = "Conservative"
-            self.party.text = "Baptist"
-            self.labelll.text = "6'1''"
+            self.location.text = firstUser?.value1
+            self.political.text = firstUser?.value2
+            self.party.text = firstUser?.value3
+            self.labelll.text = firstUser?.height
             
             let filePath = firstUser?.photo
             
@@ -286,10 +286,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         
         self.nameandage.text = tempUser.name
-        self.location.text = "Atlanta"
-        self.political.text = "Conservative"
-        self.party.text = "Baptist"
-        self.labelll.text = "6'1''"
+        self.location.text = tempUser.value1
+        self.political.text = tempUser.value2
+        self.party.text = tempUser.value3
+        self.labelll.text = tempUser.height
         
         let filePath = tempUser.photo
         

@@ -19,7 +19,6 @@ class ProfileViewController: UITableViewController {
     
     @IBOutlet weak var nameAge: UILabel!
     @IBOutlet weak var jobTitle: UILabel!
-    @IBOutlet weak var employer: UILabel!
     @IBOutlet weak var school: UILabel!
     @IBOutlet weak var PoliticalIdeology: UILabel!
     
@@ -55,10 +54,16 @@ class ProfileViewController: UITableViewController {
             
             let tempProfileInfoArray = value as! NSDictionary
             
+            
+            self.school.text = tempProfileInfoArray["school"] as? String
+            self.bio.text = tempProfileInfoArray["bio"] as? String
+            self.jobTitle.text = tempProfileInfoArray["job"] as? String
+            let name = tempProfileInfoArray["username"] as? String
+            let age = tempProfileInfoArray["age"] as? String
             self.partyAffiliation.text = tempProfileInfoArray["value1"] as? String
             self.PoliticalIdeology.text = tempProfileInfoArray["value2"] as? String
             self.religion.text = tempProfileInfoArray["value3"] as? String
-            
+            self.nameAge.text = (name?.appending(", "+age!))
             
         })
         

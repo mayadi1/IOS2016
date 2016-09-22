@@ -18,6 +18,10 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
     var temp1: String?
     var temp2: String?
     var temp3: String?
+    var job = "none"
+    var school = "none"
+    var bio = "none"
+    
     @IBOutlet weak var doneButton: UIButton!
     
     var passedName: String?
@@ -103,61 +107,74 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         }
         
     }
-    func ResizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
+    
+    
+    
+    @IBAction func doneButtonPressed(_ sender: AnyObject) {
         
-        let widthRatio  = targetSize.width  / image.size.width
-        let heightRatio = targetSize.height / image.size.height
-        
-        // Figure out what our orientation is, and use that to form the rectangle
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        if job == "none"{
+            
+            let jobAlert = UIAlertController(title: "What's your professional headline?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+            
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.job = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
         }
         
-        // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        if school == "none"{
+            let jobAlert = UIAlertController(title: "What's your recent School?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.school = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
+        }
         
-        // Actually do the resizing to the rect using the ImageContext stuff
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        if bio == "none"{
+            let jobAlert = UIAlertController(title: "What's your bio?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.bio = (jobAlert.textFields?.first?.text)!
+               sender.setTitle("Done", for: .normal)
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+           
+
+        }
+        else{
         
-        return newImage!
-    }
-    @IBAction func doneButtonPressed(_ sender: AnyObject) {
+        
         self.doneButton.isEnabled = false
-        
         self.activityAnimation.isHidden = false
         self.activityAnimation.startAnimating()
         var data = Data()
-        
-        let newImage = self.ResizeImage(self.image!,targetSize: CGSize(width: 382, height: 725))
-        data = UIImageJPEGRepresentation(newImage, 0.1)!
-        
-        
-        
+        data = UIImageJPEGRepresentation(self.image!, 0.1)!
         FIRAuth.auth()?.createUser(withEmail: self.passedEmail!, password: self.passedPassword!, completion: { (user, error) in
             if let error = error {
-                
                 let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                
-                
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     
                 }
                 alertController.addAction(OKAction)
-                
                 self.present(alertController, animated: true, completion:nil)
-                
-                
-                
-                
-                
-                
                 return
             }else{
                 let rootRef = FIRDatabase.database().reference()
@@ -165,33 +182,22 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 rootRef.child("users").child("\(user!.uid)").child("username").setValue(self.passedName)
                 rootRef.child("users").child("\(user!.uid)").child("useruid").setValue("\(user!.uid)")
                 rootRef.child("users").child("\(user!.uid)").child("useremail").setValue(self.passedEmail)
-                
                 rootRef.child("users").child("\(user!.uid)").child("follow").setValue("0")
                 rootRef.child("users").child("\(user!.uid)").child("valid").setValue("yes")
-                
-                
                 rootRef.child("users").child("\(user!.uid)").child("value1").setValue(self.temp1)
                 rootRef.child("users").child("\(user!.uid)").child("value2").setValue(self.temp2)
                 rootRef.child("users").child("\(user!.uid)").child("value3").setValue(self.temp3)
-
-                
-                
+                rootRef.child("users").child("\(user!.uid)").child("job").setValue(self.job)
+                rootRef.child("users").child("\(user!.uid)").child("school").setValue(self.school)
+                rootRef.child("users").child("\(user!.uid)").child("bio").setValue(self.bio)
                 let changeRequest = user?.profileChangeRequest()
                 changeRequest?.displayName = self.passedName
                 changeRequest?.commitChanges(completion: { (error) in
                     if let error = error {
                         print(error.localizedDescription)
-                        
-                        
-                        
-                        
+
                         return
                     }
-                    
-                    
-                    
-                    
-                    
                 })
                 let filePath = "profileImage/\(user!.uid)"
                 let metadata =  FIRStorageMetadata()
@@ -200,9 +206,6 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 self.storageRef.child(filePath).put(data, metadata: metadata, completion: { (metadata, error) in
                     if let error = error{
                         print("\(error)")
-                        
-                        
-                        
                         return
                     }
                     self.fileUrl = metadata?.downloadURLs![0].absoluteString
@@ -241,7 +244,7 @@ class ValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
         }
         
     }
-
+    }
     var storageRef: FIRStorageReference{
         return FIRStorage.storage().reference()
         

@@ -16,6 +16,9 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var pickerView3: UIPickerView!
     @IBOutlet weak var pickerView2: UIPickerView!
     @IBOutlet weak var pickerView: UIPickerView!
+    var job = "none"
+    var school = "none"
+    var bio = "none"
     
     var data = ["", "Absolutist", "Anarchist", "Capitalist", "Communist", "Conservative", "Environmentalist", "Liberal", "Socialist", "Other"]
     
@@ -89,6 +92,54 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func doneButtonPressed(_ sender: AnyObject) {
+        if job == "none"{
+            
+            let jobAlert = UIAlertController(title: "What's your professional headline?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.job = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
+        }
+        
+        if school == "none"{
+            let jobAlert = UIAlertController(title: "What's your recent School?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.school = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
+        }
+        
+        if bio == "none"{
+            let jobAlert = UIAlertController(title: "What's your bio?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.bio = (jobAlert.textFields?.first?.text)!
+                sender.setTitle("Done", for: .normal)
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            
+            
+        }
+        else{
         
         let user = FIRAuth.auth()?.currentUser
         
@@ -103,6 +154,9 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         rootRef.child("users").child("\(user!.uid)").child("value1").setValue(self.temp1)
         rootRef.child("users").child("\(user!.uid)").child("value2").setValue(self.temp2)
         rootRef.child("users").child("\(user!.uid)").child("value3").setValue(self.temp3)
+            rootRef.child("users").child("\(user!.uid)").child("job").setValue(self.job)
+            rootRef.child("users").child("\(user!.uid)").child("school").setValue(self.school)
+            rootRef.child("users").child("\(user!.uid)").child("bio").setValue(self.bio)
         rootRef.child("users").child("\(user!.uid)").child("userProfilePic").setValue(user?.photoURL?.relativeString)
         
         
@@ -113,7 +167,7 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         
         self.present(MapViewController, animated: false, completion: nil)
         
-        
+        }
         
     }
     

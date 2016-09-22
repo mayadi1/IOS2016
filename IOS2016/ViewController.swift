@@ -216,12 +216,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 let each: NSDictionary = eachh as! NSDictionary
                 self.usersInfo.append(UsersInfo(tempName: each["username"] as! String, tempPhoto: each["userProfilePic"] as! String, tempUID: each["useruid"] as! String))
                 
-
-                
-                
             }
             
-
             
             self.activityIndicator.stopAnimating()
             

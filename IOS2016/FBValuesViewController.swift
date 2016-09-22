@@ -19,6 +19,8 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
     var job = "none"
     var school = "none"
     var bio = "none"
+    var userType = "none"
+    var height = "none"
     
     var data = ["", "Absolutist", "Anarchist", "Capitalist", "Communist", "Conservative", "Environmentalist", "Liberal", "Socialist", "Other"]
     
@@ -122,6 +124,36 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
             self.view.endEditing(true)
             sender.setTitle("Next", for: .normal)
         }
+        if userType == "none"{
+            
+            let jobAlert = UIAlertController(title: "Are you male or female?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.userType = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
+        }
+        
+        if height == "none"{
+            
+            let jobAlert = UIAlertController(title: "What's your height?", message: nil, preferredStyle: .alert)
+            jobAlert.addTextField(configurationHandler: { (UITextField) in
+                
+            })
+            let jobSave  = UIAlertAction(title: "Save", style: .default, handler: { (UIAlertAction) in
+                self.height = (jobAlert.textFields?.first?.text)!
+            })
+            jobAlert.addAction(jobSave)
+            present(jobAlert, animated: true, completion: nil)
+            self.view.endEditing(true)
+            sender.setTitle("Next", for: .normal)
+        }
+        
         
         if bio == "none"{
             let jobAlert = UIAlertController(title: "What's your bio?", message: nil, preferredStyle: .alert)
@@ -142,6 +174,7 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         else{
         
         let user = FIRAuth.auth()?.currentUser
+            
         
         rootRef.child("users").child("\(user!.uid)").child("username").setValue(user?.displayName)
         rootRef.child("users").child("\(user!.uid)").child("useruid").setValue("\(user!.uid)")
@@ -154,9 +187,14 @@ class FBValuesViewController: UIViewController,UIPickerViewDelegate, UIPickerVie
         rootRef.child("users").child("\(user!.uid)").child("value1").setValue(self.temp1)
         rootRef.child("users").child("\(user!.uid)").child("value2").setValue(self.temp2)
         rootRef.child("users").child("\(user!.uid)").child("value3").setValue(self.temp3)
-            rootRef.child("users").child("\(user!.uid)").child("job").setValue(self.job)
-            rootRef.child("users").child("\(user!.uid)").child("school").setValue(self.school)
-            rootRef.child("users").child("\(user!.uid)").child("bio").setValue(self.bio)
+        rootRef.child("users").child("\(user!.uid)").child("job").setValue(self.job)
+        rootRef.child("users").child("\(user!.uid)").child("school").setValue(self.school)
+        rootRef.child("users").child("\(user!.uid)").child("bio").setValue(self.bio)
+        rootRef.child("users").child("\(user!.uid)").child("userType").setValue(self.userType)
+        rootRef.child("users").child("\(user!.uid)").child("height").setValue(self.height)
+
+
+            
         rootRef.child("users").child("\(user!.uid)").child("userProfilePic").setValue(user?.photoURL?.relativeString)
         
         

@@ -49,7 +49,7 @@ open class SideMenuManager {
     open static var menuAllowPopIfPossible = false
     
     /// Width of the menu when presented on screen, showing the existing view controller in the remaining space. Default is 100% of the screen width.
-    open static var menuWidth: CGFloat = max(round(min((appScreenRect.width), (appScreenRect.height)) * 1.0), 240)
+    open static var menuWidth: CGFloat = max(round(min((appScreenRect.width), (appScreenRect.height)) * 0.95), 240)
     
     /// Duration of the animation when the menu is presented without gestures. Default is 0.35 seconds.
     open static var menuAnimationPresentDuration = 0.35

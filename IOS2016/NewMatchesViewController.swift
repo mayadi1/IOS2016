@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SideMenu
 
 class NewMatchesViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 
@@ -78,12 +79,7 @@ class NewMatchesViewController: UIViewController, UITableViewDataSource,UITableV
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-        var menuViewController: UITableViewController = storyboard.instantiateViewController(withIdentifier: "NewMatchUserInfo") as! NewMatchUserInfoViewController
-        
-     present(menuViewController, animated: false) { 
-        
-        }
+  
         
         
     }

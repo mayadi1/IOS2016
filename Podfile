@@ -1,11 +1,11 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'IOS2016' do
+target 'Runningmate' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for IOS2016
+  # Pods for Runningmate
 
 pod 'Firebase'
 pod ‘Firebase/Auth’
@@ -14,7 +14,6 @@ pod 'Firebase/Storage’
 pod ‘FBSDKCoreKit'
 pod ’FBSDKLoginKit'
 pod ’FBSDKShareKit’
-pod 'JSQMessagesViewController'
 
 
 source 'https://github.com/CocoaPods/Specs.git'

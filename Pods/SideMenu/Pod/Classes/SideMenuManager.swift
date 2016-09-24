@@ -6,19 +6,19 @@
 //
 
 /* Example usage:
-    // Define the menus
-    SideMenuManager.menuLeftNavigationController = storyboard!.instantiateViewControllerWithIdentifier("LeftMenuNavigationController") as? UISideMenuNavigationController
-    SideMenuManager.menuRightNavigationController = storyboard!.instantiateViewControllerWithIdentifier("RightMenuNavigationController") as? UISideMenuNavigationController
-
-    // Enable gestures. The left and/or right menus must be set up above for these to work.
-    // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
-    SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-    SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+     // Define the menus
+     SideMenuManager.menuLeftNavigationController = storyboard!.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
+     SideMenuManager.menuRightNavigationController = storyboard!.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? UISideMenuNavigationController
+     
+     // Enable gestures. The left and/or right menus must be set up above for these to work.
+     // Note that these continue to work on the Navigation Controller independent of the View Controller it displays!
+     SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+     SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
 */
 
-open class SideMenuManager {
+open class SideMenuManager : NSObject {
     
-    public enum MenuPresentMode {
+    @objc public enum MenuPresentMode : Int {
         case menuSlideIn
         case viewSlideOut
         case viewSlideInOut
@@ -35,10 +35,10 @@ open class SideMenuManager {
      The presentation mode of the menu.
      
      There are four modes in MenuPresentMode:
-     - MenuSlideIn: Menu slides in over of the existing view.
-     - ViewSlideOut: The existing view slides out to reveal the menu.
-     - ViewSlideInOut: The existing view slides out while the menu slides in.
-     - MenuDissolveIn: The menu dissolves in over the existing view controller.
+     - menuSlideIn: Menu slides in over of the existing view.
+     - viewSlideOut: The existing view slides out to reveal the menu.
+     - viewSlideInOut: The existing view slides out while the menu slides in.
+     - menuDissolveIn: The menu dissolves in over the existing view controller.
      */
     open static var menuPresentMode: MenuPresentMode = .viewSlideOut
     
@@ -48,8 +48,8 @@ open class SideMenuManager {
     /// Pops to any view controller already in the navigation stack instead of the view controller being pushed if they share the same class. Defaults to false.
     open static var menuAllowPopIfPossible = false
     
-    /// Width of the menu when presented on screen, showing the existing view controller in the remaining space. Default is 100% of the screen width.
-    open static var menuWidth: CGFloat = max(round(min((appScreenRect.width), (appScreenRect.height)) * 0.95), 240)
+    /// Width of the menu when presented on screen, showing the existing view controller in the remaining space. Default is 75% of the screen width.
+    open static var menuWidth: CGFloat = max(round(min((appScreenRect.width), (appScreenRect.height)) * 0.90), 240)
     
     /// Duration of the animation when the menu is presented without gestures. Default is 0.35 seconds.
     open static var menuAnimationPresentDuration = 0.35
@@ -81,13 +81,19 @@ open class SideMenuManager {
     /// The right menu swipe to dismiss gesture.
     open static weak var menuRightSwipeToDismissGesture: UIPanGestureRecognizer?
     
+    /// Enable or disable gestures that would swipe to present or dismiss the menu. Default is true.
+    open static var menuEnableSwipeGestures: Bool = true
+    
+    /// Enable or disable interaction with the presenting view controller while the menu is displayed. Enabling may make it difficult to dismiss the menu or cause exceptions if the user tries to present and already presented menu. Default is false.
+    open static var menuPresentingViewControllerUserInteractionEnabled: Bool = false
+    
     /// The strength of the parallax effect on the existing view controller. Does not apply to `menuPresentMode` when set to `ViewSlideOut`. Default is 0.
     open static var menuParallaxStrength: Int = 0
     
     /// Draws the `menuAnimationBackgroundColor` behind the status bar. Default is true.
     open static var menuFadeStatusBar = true
     
-    /// - Warning: Deprecated. Use `menuAnimationTransformScaleFactor` instead.
+    /// -Warning: Deprecated. Use `menuAnimationTransformScaleFactor` instead.
     @available(*, deprecated, renamed: "menuAnimationTransformScaleFactor")
     open static var menuAnimationShrinkStrength: CGFloat {
         get {
@@ -99,7 +105,7 @@ open class SideMenuManager {
     }
     
     // prevent instantiation
-    fileprivate init() {}
+    fileprivate override init() {}
     
     /**
      The blur effect style of the menu if the menu's root view controller is a UITableViewController or UICollectionViewController.
@@ -233,7 +239,7 @@ open class SideMenuManager {
  
      - Returns: The array of screen edge gestures added to `toView`.
      */
-    open class func menuAddScreenEdgePanGesturesToPresent(toView: UIView, forMenu:UIRectEdge? = nil) -> [UIScreenEdgePanGestureRecognizer] {
+    @discardableResult open class func menuAddScreenEdgePanGesturesToPresent(toView: UIView, forMenu:UIRectEdge? = nil) -> [UIScreenEdgePanGestureRecognizer] {
         var array = [UIScreenEdgePanGestureRecognizer]()
         
         if forMenu != .right {
@@ -264,7 +270,7 @@ open class SideMenuManager {
      
      - Returns: The pan gesture added to `toView`.
      */
-    open class func menuAddPanGestureToPresent(toView: UIView) -> UIPanGestureRecognizer {
+    @discardableResult open class func menuAddPanGestureToPresent(toView: UIView) -> UIPanGestureRecognizer {
         let panGestureRecognizer = UIPanGestureRecognizer()
         panGestureRecognizer.addTarget(SideMenuTransition.self, action:#selector(SideMenuTransition.handlePresentMenuPan(_:)))
         toView.addGestureRecognizer(panGestureRecognizer)

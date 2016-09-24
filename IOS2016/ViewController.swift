@@ -158,6 +158,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     
     func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
+        let tempUser = self.usersInfo[self.count]
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
@@ -168,10 +169,15 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
                 
                 self.likeImage.isHidden = false
                 
-                var timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+                let timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
                 print("Swiped right")
+        
                 
                 
+                usersRef.child(tempUser.uid!).child("newLike").childByAutoId().setValue(FIRAuth.auth()?.currentUser?.uid)
+                
+                usersRef.child((FIRAuth.auth()?.currentUser?.uid)!).child("UsersILike").childByAutoId().setValue(tempUser.uid!)
+            
                 self.changeUser()
 
                 
@@ -179,8 +185,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             case UISwipeGestureRecognizerDirection.left:
                 print("Swiped left")
                 self.down.isHidden = false
-                var timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
-                
+                let timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(ViewController.dismissAlert), userInfo: nil, repeats: false)
+             
+                usersRef.child((FIRAuth.auth()?.currentUser?.uid)!).child("UsersIDislike").childByAutoId().setValue(tempUser.uid!)
+
               self.changeUser()
               
             default:

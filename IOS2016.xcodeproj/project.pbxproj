@@ -19,6 +19,7 @@
 		180987421D436F08006C7883 /* AccountCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987411D436F08006C7883 /* AccountCViewController.swift */; };
 		180987441D437147006C7883 /* ValuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987431D437147006C7883 /* ValuesViewController.swift */; };
 		1809874A1D438BB6006C7883 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180987491D438BB6006C7883 /* ProfileViewController.swift */; };
+		182B7F0A1D98464700A77912 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B7F091D98464700A77912 /* ChatViewController.swift */; };
 		18432C471D43396F00E67B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C461D43396F00E67B27 /* AppDelegate.swift */; };
 		18432C491D43396F00E67B27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432C481D43396F00E67B27 /* ViewController.swift */; };
 		18432C4C1D43396F00E67B27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18432C4A1D43396F00E67B27 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		180987431D437147006C7883 /* ValuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValuesViewController.swift; sourceTree = "<group>"; };
 		180987491D438BB6006C7883 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		181704D31D93AEDD0092942A /* Runningmate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runningmate.entitlements; sourceTree = "<group>"; };
+		182B7F091D98464700A77912 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		18432C431D43396F00E67B27 /* Runningmate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runningmate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18432C461D43396F00E67B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18432C481D43396F00E67B27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				18621F0A1D96A06600FE6ED4 /* CurrentMatchesViewController.swift */,
 				18621F081D96A04500FE6ED4 /* NewMatchesViewController.swift */,
 				18DD54A51D981862004831B2 /* newMatchesUserInfoTableViewController.swift */,
+				182B7F091D98464700A77912 /* ChatViewController.swift */,
 			);
 			name = ChatSection;
 			sourceTree = "<group>";
@@ -193,7 +196,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = IOS2016;
 				TargetAttributes = {
 					18432C421D43396F00E67B27 = {
@@ -315,6 +318,7 @@
 				18432C491D43396F00E67B27 /* ViewController.swift in Sources */,
 				18DD54A61D981862004831B2 /* newMatchesUserInfoTableViewController.swift in Sources */,
 				18C8C59B1D4B4E8D00249F82 /* FBValuesViewController.swift in Sources */,
+				182B7F0A1D98464700A77912 /* ChatViewController.swift in Sources */,
 				18432C471D43396F00E67B27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +359,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -400,8 +406,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -420,6 +428,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -428,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A475C1B74511DE2A589D67B /* Pods-Runningmate.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -446,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCB0BB063EA267916D03EEE6 /* Pods-Runningmate.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

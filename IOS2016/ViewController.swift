@@ -213,8 +213,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     func retrieveUsers(){
         
         
-        
-        self.usersRef.observe(.value, with:  { (snapshot) in
+        self.usersRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value
             

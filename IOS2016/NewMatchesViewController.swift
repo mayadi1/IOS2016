@@ -91,7 +91,8 @@ class NewMatchesViewController: UIViewController, UITableViewDataSource,UITableV
         self.embed?.value2.text = self.newMatchesUsersInfo[indexPath.row].value2
         self.embed?.value3.text = self.newMatchesUsersInfo[indexPath.row].value3
         self.embed?.bio.text = self.newMatchesUsersInfo[indexPath.row].bio
-        
+        self.embed?.uid.text = self.newMatchesUsersInfo[indexPath.row].uid
+
         
     }
     

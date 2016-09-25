@@ -59,7 +59,13 @@ class CurrentMatchesViewController: UIViewController, UITableViewDelegate, UITab
                   
                     self.userMessages.append(info["userMessages"] as! String)
                     
-                    let condition3 = self.ref.child("users").child(info["toId"] as! String)
+                    var id = info["fromId"] as? String
+                    if (id == FIRAuth.auth()?.currentUser?.uid){
+                        id = info["toId"] as? String}
+     
+                    let condition3 = self.ref.child("users").child(id!)
+
+                    
                     condition3.observeSingleEvent(of: .value, with: { (FIRDataSnapshot) in
                         let value = FIRDataSnapshot.value
                         let each = value as! NSDictionary

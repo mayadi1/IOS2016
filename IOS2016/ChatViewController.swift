@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
+//Update chat 
     @IBOutlet weak var text: UITextField!
     var passedMessages = [String]()
     var passedChatChildKey: String?
@@ -38,5 +38,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let value2: [String: String] =  ["messages": self.text.text! as String, "fromId": (FIRAuth.auth()?.currentUser?.uid)! as String, "toId": self.passedCurrentUserUid! as String, "timeStamp": String(timeStamp) as String]
         self.ref.child("userMessages").child(self.passedChatChildKey!).childByAutoId().setValue(value2)
         self.text.text = nil
+        
     }
 }

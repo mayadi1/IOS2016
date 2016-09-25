@@ -93,6 +93,8 @@ class CurrentMatchesViewController: UIViewController, UITableViewDelegate, UITab
 
         })
         
+        self.embed?.passedChatChildKey = userMessages[indexPath.row]
+    self.embed?.passedCurrentUserUid = self.usersInfo[indexPath.row].uid
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

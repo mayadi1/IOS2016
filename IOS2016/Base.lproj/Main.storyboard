@@ -3032,6 +3032,9 @@
                                     <constraint firstAttribute="width" constant="51" id="7hO-d9-Jae"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="zkV-Oq-kd3" eventType="touchUpInside" id="cbM-CG-euP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3055,6 +3058,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="s4B-Oc-wkR" id="N3Y-Lp-Z9G"/>
+                        <outlet property="text" destination="VLL-rI-SJi" id="3bF-Dw-pb2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3q-kC-4T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
